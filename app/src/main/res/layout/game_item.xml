@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/game_item_layout_height"
+    android:layout_marginTop="@dimen/game_item_margin_top"
+    android:background="@color/GamerToolgray"
+    android:padding="@dimen/game_item_padding"
+    tools:context=".ui.main.MainFragment">
+
+    <ImageView
+        android:id="@+id/gameCover"
+        android:layout_width="@dimen/game_item_cover_size"
+        android:layout_height="@dimen/game_item_cover_size"
+        android:padding="@dimen/game_item_cover_padding"
+        android:progressTint="@color/GamerToolsoftViolet"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/igdb_cover" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:fontFamily="sans-serif-black"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/game_item_title_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gameCover"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Super Mario Oddyssey ABC DEF GHI JKL MNO PQR STU" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColor="@color/GamerTooltextSoftGray"
+        android:textSize="@dimen/game_item_date_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="2019" />
+
+    <View
+        android:id="@+id/verticalSeparator"
+        android:layout_width="@dimen/vertical_separator_width"
+        android:layout_height="@dimen/vertical_separator_height"
+        android:layout_marginStart="@dimen/vertical_separator_marginstart"
+        android:background="@color/GamerTooltextSoftGray"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintStart_toEndOf="@+id/date"
+        app:layout_constraintTop_toTopOf="@+id/date" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/game_item_ratingbar_marginstart"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:rating="2.7"
+        android:stepSize="0.1"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeparator"
+        app:layout_constraintTop_toTopOf="@+id/date" />
+
+    <View
+        android:id="@+id/horizontalSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/game_item_horizontal_separator_height"
+        android:layout_marginVertical="@dimen/horizontal_separator_marginvertical"
+        android:background="@color/GamerToolsoftViolet"
+        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <TextView
+        android:id="@+id/platform"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/game_item_plaltform_marginhorizontal"
+        android:layout_marginTop="@dimen/game_item_platform_margintop"
+        android:fontFamily="sans-serif-thin"
+        android:maxLines="2"
+        android:textColor="@color/GamerTooltextSoftGray"
+        android:textSize="@dimen/game_item_platform_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gameCover"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalSeparator"
+        tools:text="Nintendo Switch, Playstation 3, Playstation 4, Playstation 5, xBox S" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

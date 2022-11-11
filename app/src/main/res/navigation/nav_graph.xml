@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MainFragment">
+
+    <fragment
+        android:id="@+id/MainFragment"
+        android:name="com.juanmi.gamertool.ui.main.MainFragment"
+        android:label="@string/main_fragment_title"
+        tools:layout="@layout/main_fragment">
+
+        <action
+            android:id="@+id/action_MainFragment_to_GameDetailsFragment"
+            app:destination="@id/GameDetailsFragment">
+            <argument
+                android:name="game"
+                app:argType="com.juanmi.gamertool.repository.model.Game" />
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/GameDetailsFragment"
+        android:name="com.juanmi.gamertool.ui.gamedetails.GameDetailsFragment"
+        android:label="@string/game_details_fragment_title"
+        tools:layout="@layout/game_details_fragment">
+        <argument
+            android:name="game"
+            app:argType="com.juanmi.gamertool.repository.model.Game" />
+    </fragment>
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.juanmi.gamertool.ui.foundgames.FoundGamesFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/found_games_fragment">
+        <action
+            android:id="@+id/action_FoundGamesFragment_to_GameDetailsFragment"
+            app:destination="@id/GameDetailsFragment" />
+        <argument
+            android:name="gameName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/browserFragment"
+        android:name="com.juanmi.gamertool.ui.browser.BrowserFragment"
+        android:label="BrowserFragment"
+        tools:layout="@layout/browser_fragment">
+        <action
+            android:id="@+id/action_browserFragment_to_SearchFragment"
+            app:destination="@id/SearchFragment" />
+    </fragment>
+</navigation>

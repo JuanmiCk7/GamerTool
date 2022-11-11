@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GamerToolgray"
+    tools:context=".ui.gamedetails.GameDetailsFragment">
+
+    <ImageView
+        android:id="@+id/headerBackground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/game_detail_background_height"
+        android:alpha="0.4"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/igdb_app_background" />
+
+    <ImageView
+        android:id="@+id/gameCover"
+        android:layout_width="@dimen/game_detail_cover_width"
+        android:layout_height="@dimen/game_detail_cover_height"
+        android:layout_marginStart="16dp"
+        android:elevation="@dimen/game_detail_cover_elevation"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalSeparator"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@drawable/igdb_cover" />
+
+    <ImageView
+        android:id="@+id/linkToWeb"
+        android:layout_width="@dimen/game_detail_link_size"
+        android:layout_height="@dimen/game_detail_link_size"
+        android:layout_marginStart="@dimen/game_detail_link_marginstart"
+        android:layout_marginTop="@dimen/game_detail_link_margintop"
+        android:layout_marginEnd="@dimen/game_detail_link_maginend"
+        android:padding="@dimen/game_detail_link_padding"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_link_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/GamerToolsoftViolet" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColor="@color/GamerTooltextSoftGray"
+        android:textSize="@dimen/game_detail_date_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        tools:text="2019" />
+
+    <View
+        android:id="@+id/verticalSeparator"
+        android:layout_width="@dimen/game_detail_verticalseparator_width"
+        android:layout_height="@dimen/game_detail_verticalseparator_height"
+        android:layout_marginStart="@dimen/game_detail_verticalseparator_marginstart"
+        android:background="@color/GamerTooltextSoftGray"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintStart_toEndOf="@+id/date"
+        app:layout_constraintTop_toTopOf="@+id/date" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/game_detail_ratingbar_marginstart"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:progressTint="@color/GamerToolsoftViolet"
+        android:rating="2.7"
+        android:stepSize="0.1"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeparator"
+        app:layout_constraintTop_toTopOf="@+id/date" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-black"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/game_detail_title_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gameCover"
+        tools:text="Super Mario Oddyssey ABC DEF GHI JKL MNO PQR STU" />
+
+    <View
+        android:id="@+id/horizontalSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/game_detail_horizontalseparator_height"
+        android:layout_marginVertical="@dimen/game_detail_horizontalseparator_marginvertical"
+        android:background="@color/GamerToolsoftViolet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerBackground" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/game_detail_scrollview_marginbottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalSeparator">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/screenshotsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/game_detail_screenshots_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/platforms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:padding="@dimen/game_detail_platform_padding"
+                android:textColor="@color/GamerTooltextSoftGray"
+                android:textSize="@dimen/game_detail_platform_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/screenshotsRecyclerView"
+                tools:text="Nintendo Switch, Playstation 3, Playstation 4, Playstation 5, xBox S" />
+
+            <View
+                android:id="@+id/grayHorizontalSeparator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/game_detail_grayhorizontalseparator_height"
+                android:background="@color/GamerToolsoftGray"
+                android:paddingVertical="@dimen/game_detail_grayhorizontalseparator_paddingvertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/platforms" />
+
+
+            <TextView
+                android:id="@+id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:padding="@dimen/game_detail_summary_padding"
+                android:textColor="@color/GamerTooltextSoftGray"
+                android:textSize="@dimen/game_detail_summary_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/grayHorizontalSeparator"
+                tools:text="@string/summary_sample_text" />
+
+            <TextView
+                android:id="@+id/storyline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:padding="@dimen/game_detail_storyline_padding"
+                android:textColor="@color/GamerToolsoftGray"
+                android:textSize="@dimen/game_detail_storyline_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/summary"
+                tools:text="@string/storyline_sample_text" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/storyline" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
