@@ -12,8 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.FirebaseFirestore
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.GameDetailsFragmentBinding
+import com.juanmi.gamertool.repository.model.Game
 import com.juanmi.gamertool.repository.model.getPlatformsNames
 import com.juanmi.gamertool.repository.model.getReleaseDate
 import com.juanmi.gamertool.ui.gamedetails.adapters.ScreenshotsAdapter
@@ -24,8 +26,12 @@ import com.squareup.picasso.Picasso
 
 class GameDetailsFragment : Fragment() {
 
+    private val db = FirebaseFirestore.getInstance()
+
     private var _binding: GameDetailsFragmentBinding? = null
     private val binding get() = _binding!!
+
+    lateinit var game: Game
 
     private val viewModel: GameDetailsViewModel by viewModels()
 
@@ -45,6 +51,7 @@ class GameDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         defineObservables()
+        game = args.game
         viewModel.setGameModel(args.game)
     }
 
@@ -105,9 +112,20 @@ class GameDetailsFragment : Fragment() {
             binding.summary.text = this.summary
             binding.storyline.text = this.storyline
 
-            binding.linkToWeb.setOnClickListener {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(this.url))
-                startActivity(browserIntent)
+            /**
+             * TODO: Hacer que el botón añada el juego a la base de datos
+             */
+            binding.buttonToWishList.setOnClickListener {
+                db.collection("games").document(game.id.toString()).set(
+                    hashMapOf(  "name" to game.name,
+                                "storyline" to game.storyline,
+                                "summary" to game.summary,
+                                "url" to game.url,
+                                "releaseDate" to game.releaseDate,
+                                "rating" to game.rating,
+                                "totalRating" to game.rating,
+                                "ratingCount" to game.ratingCount)
+                )
             }
         }
 

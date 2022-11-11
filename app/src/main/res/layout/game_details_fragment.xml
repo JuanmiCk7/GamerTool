@@ -30,16 +30,16 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:src="@drawable/igdb_cover" />
 
-    <ImageView
-        android:id="@+id/linkToWeb"
-        android:layout_width="@dimen/game_detail_link_size"
-        android:layout_height="@dimen/game_detail_link_size"
-        android:layout_marginStart="@dimen/game_detail_link_marginstart"
+    <Button
+        android:id="@+id/buttonToWishList"
+        android:layout_width="148dp"
+        android:layout_height="50dp"
         android:layout_marginTop="@dimen/game_detail_link_margintop"
         android:layout_marginEnd="@dimen/game_detail_link_maginend"
         android:padding="@dimen/game_detail_link_padding"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_link_24"
+        android:text="Añadir a lista"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/GamerToolsoftViolet" />

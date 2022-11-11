@@ -50,4 +50,13 @@
             android:id="@+id/action_browserFragment_to_SearchFragment"
             app:destination="@id/SearchFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/MyGamesFragment"
+        android:name="com.juanmi.gamertool.ui.mygames.MyGamesFragment"
+        android:label="MyGamesFragment"
+        tools:layout="@layout/my_games_fragment">
+        <action
+            android:id="@+id/action_myGamesFragment_to_GameDetailsFragment"
+            app:destination="@id/GameDetailsFragment" />
+    </fragment>
 </navigation>

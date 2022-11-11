@@ -10,4 +10,9 @@
         android:icon="@drawable/ic_broken_image_24"
         android:title="Search"/>
 
+    <item
+        android:id="@+id/MyGamesFragment"
+        android:icon="@drawable/ic_broken_image_24"
+        android:title="My Games"/>
+
 </menu>
