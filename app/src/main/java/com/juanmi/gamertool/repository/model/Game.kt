@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter
 
 @Parcelize
 data class Game(
-    val id: Int,
+    val id: Int = 0,
     val cover: GameCover? = GameCover(-1, ""),
     val genres: List<GameGenre>? = listOf(),
     val name: String? = "",
@@ -21,7 +21,8 @@ data class Game(
     val rating: Double? = 0.0,
     val totalRating: Double? = 0.0,
     val ratingCount: Int? = 0,
-    val screenshots: List<GameScreenshot>? = listOf()
+    val screenshots: List<GameScreenshot>? = listOf(),
+    val complete: Boolean = false
 ) : Parcelable
 
 fun Game.getPlatformsNames(): String {

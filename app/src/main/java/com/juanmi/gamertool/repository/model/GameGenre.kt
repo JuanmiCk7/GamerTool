@@ -5,6 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class GameGenre(
-    val id: Int,
+    val id: Int = 0,
     val name: String = "",
 ) : Parcelable

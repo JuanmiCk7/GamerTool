@@ -23,7 +23,6 @@ class GameRepositoryImpl @Inject constructor(
      * params{currentPage: Página actual en la que está buscando}
      */
     override suspend fun getGames(currentPage: Int): ResultData<ArrayList<Game>?> {
-        Log.d("Hey", "The code gets to getGames method")
         return withContext(dispatcher) {
             return@withContext safeCall {
                 service.getGames(
@@ -38,7 +37,6 @@ class GameRepositoryImpl @Inject constructor(
      * params{name: Nombre del juego que se está buscando}
      */
     override suspend fun getGamesByName(name: String): ResultData<ArrayList<Game>?> {
-        Log.d("Hey", "The code gets to getGamesByName method")
         return withContext(dispatcher) {
             return@withContext safeCall {
                 service.getGamesByName(

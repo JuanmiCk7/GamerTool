@@ -82,7 +82,7 @@ class FoundGamesFragment : Fragment() {
     }
 
     private fun onGameClicked(game: Game) {
-        viewModel.onGameClicked(game, view!!)
+        viewModel.onGameClicked(game, requireView())
     }
 
     private fun finishRefreshing() {

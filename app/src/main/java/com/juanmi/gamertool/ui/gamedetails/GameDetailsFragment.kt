@@ -1,12 +1,14 @@
 package com.juanmi.gamertool.ui.gamedetails
 
-import android.content.Intent
+
 import android.graphics.drawable.LayerDrawable
-import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -48,6 +50,7 @@ class GameDetailsFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         defineObservables()
@@ -55,12 +58,14 @@ class GameDetailsFragment : Fragment() {
         viewModel.setGameModel(args.game)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun defineObservables() {
         viewModel.viewState.observe(viewLifecycleOwner) {
             setupView()
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setupView() {
         with(viewModel.game.value!!) {
             screenshotsAdapter = ScreenshotsAdapter(
@@ -116,16 +121,42 @@ class GameDetailsFragment : Fragment() {
              * TODO: Hacer que el botón añada el juego a la base de datos
              */
             binding.buttonToWishList.setOnClickListener {
-                db.collection("games").document(game.id.toString()).set(
-                    hashMapOf(  "name" to game.name,
-                                "storyline" to game.storyline,
-                                "summary" to game.summary,
-                                "url" to game.url,
-                                "releaseDate" to game.releaseDate,
-                                "rating" to game.rating,
-                                "totalRating" to game.rating,
-                                "ratingCount" to game.ratingCount)
-                )
+
+                val data = hashMapOf(
+                    "id" to game.id,
+                    "cover" to game.cover,
+                    "genres" to game.genres,
+                    "name" to game.name,
+                    "platforms" to game.platforms,
+                    "storyline" to game.storyline,
+                    "summary" to game.summary,
+                    "url" to game.url,
+                    "releaseDate" to game.releaseDate,
+                    "rating" to game.rating,
+                    "totalRating" to game.rating,
+                    "ratingCount" to game.ratingCount,
+                    "screenshots" to game.screenshots,
+                    "complete" to game.complete)
+
+
+                db.collection("games").document(game.id.toString()).set(data)
+                    .addOnSuccessListener {
+                        Toast.makeText(context, "Game saved into wish list!", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnCanceledListener {
+                        Toast.makeText(context, "Failed saving the game into wish list!", Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+            binding.buttonComplete.setOnClickListener {
+
+                db.collection("games").document(game.id.toString()).update("complete", true)
+                    .addOnSuccessListener {
+                        Toast.makeText(context, "Game setted as complete!", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnCanceledListener {
+                        Toast.makeText(context, "Failed to save the game state to complete!", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
 

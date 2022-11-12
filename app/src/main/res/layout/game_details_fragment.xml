@@ -15,15 +15,17 @@
         android:alpha="0.4"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/igdb_app_background" />
 
     <ImageView
         android:id="@+id/gameCover"
-        android:layout_width="@dimen/game_detail_cover_width"
-        android:layout_height="@dimen/game_detail_cover_height"
-        android:layout_marginStart="16dp"
+        android:layout_width="122dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="16dp"
         android:elevation="@dimen/game_detail_cover_elevation"
         android:scaleType="fitEnd"
         app:layout_constraintBottom_toTopOf="@+id/horizontalSeparator"
@@ -32,15 +34,29 @@
 
     <Button
         android:id="@+id/buttonToWishList"
-        android:layout_width="148dp"
+        android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginTop="@dimen/game_detail_link_margintop"
-        android:layout_marginEnd="@dimen/game_detail_link_maginend"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="12dp"
         android:padding="@dimen/game_detail_link_padding"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_link_24"
-        android:text="Añadir a lista"
+        android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/GamerToolsoftViolet" />
+
+    <Button
+        android:id="@+id/buttonComplete"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:padding="@dimen/game_detail_link_padding"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_link_24"
+        android:text="Complete"
+        app:layout_constraintEnd_toStartOf="@+id/buttonToWishList"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/GamerToolsoftViolet" />
 
@@ -86,6 +102,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-black"
         android:maxLines="2"
         android:textColor="@color/white"
@@ -93,6 +110,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toEndOf="@+id/gameCover"
         tools:text="Super Mario Oddyssey ABC DEF GHI JKL MNO PQR STU" />
 
@@ -190,4 +208,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

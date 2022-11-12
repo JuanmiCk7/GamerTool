@@ -98,4 +98,14 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontalSeparator"
         tools:text="Nintendo Switch, Playstation 3, Playstation 4, Playstation 5, xBox S" />
 
+    <ImageView
+        android:id="@+id/completeGameImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/completed_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

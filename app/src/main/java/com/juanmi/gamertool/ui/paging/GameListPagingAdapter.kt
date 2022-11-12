@@ -87,6 +87,10 @@ class GameListPagingAdapter(
                 itemBinding.title.text = DEFAULT_TITLE_STRING
             }
 
+            if(!game.complete) {
+                itemBinding.completeGameImageView.visibility = View.INVISIBLE
+            }
+
             game.releaseDate?.let {
                 itemBinding.date.text = game.getReleaseDate()
             } ?: run {

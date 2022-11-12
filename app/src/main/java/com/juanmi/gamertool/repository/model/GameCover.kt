@@ -5,6 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class GameCover(
-    val id: Int,
+    val id: Int = 0,
     val url: String = "",
 ) : Parcelable

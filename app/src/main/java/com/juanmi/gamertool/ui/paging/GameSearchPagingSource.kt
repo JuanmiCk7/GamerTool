@@ -13,17 +13,15 @@ class GameSearchPagingSource(private val repository: GameRepository, private val
         return try {
             val response = repository.getGamesByName(gameName)
             var resultData: ArrayList<Game>? = null
-            var nextPageNumber: Int? = null
             if (response is ResultData.Success
             ) {
-                nextPageNumber = pageNumber + 1
                 resultData = response.data
             }
 
             LoadResult.Page(
                 data = resultData!!.toList(),
                 prevKey = null,
-                nextKey = nextPageNumber
+                nextKey = null
             )
         } catch (e: Exception) {
             LoadResult.Error(e)

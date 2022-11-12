@@ -20,7 +20,7 @@
     <dimen name="game_item_platform_margintop">4dp</dimen>
     <dimen name="game_item_plaltform_marginhorizontal">5dp</dimen>
     <dimen name="game_item_ratingbar_marginstart">5dp</dimen>
-    <dimen name="game_detail_background_height">200dp</dimen>
+    <dimen name="game_detail_background_height">220dp</dimen>
     <dimen name="game_detail_cover_width">120dp</dimen>
     <dimen name="game_detail_cover_height">180dp</dimen>
     <dimen name="game_detail_cover_marginstart">10dp</dimen>
