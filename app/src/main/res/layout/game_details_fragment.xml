@@ -15,7 +15,7 @@
         android:alpha="0.4"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/igdb_app_background" />
@@ -33,30 +33,16 @@
         tools:src="@drawable/igdb_cover" />
 
     <Button
-        android:id="@+id/buttonToWishList"
-        android:layout_width="80dp"
+        android:id="@+id/buttonToWishOrComplete"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="40dp"
         android:padding="@dimen/game_detail_link_padding"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_link_24"
-        android:text="Add"
+        android:text="finished"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/GamerToolsoftViolet" />
-
-    <Button
-        android:id="@+id/buttonComplete"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="24dp"
-        android:padding="@dimen/game_detail_link_padding"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_link_24"
-        android:text="Complete"
-        app:layout_constraintEnd_toStartOf="@+id/buttonToWishList"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/GamerToolsoftViolet" />
 

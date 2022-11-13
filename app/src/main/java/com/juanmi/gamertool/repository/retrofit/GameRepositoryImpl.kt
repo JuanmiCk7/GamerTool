@@ -25,8 +25,7 @@ class GameRepositoryImpl @Inject constructor(
     override suspend fun getGames(currentPage: Int): ResultData<ArrayList<Game>?> {
         return withContext(dispatcher) {
             return@withContext safeCall {
-                service.getGames(
-                    getGamesQuery(currentPage))
+                service.getGames(getGamesQuery(currentPage))
             }
         }
     }
@@ -39,8 +38,7 @@ class GameRepositoryImpl @Inject constructor(
     override suspend fun getGamesByName(name: String): ResultData<ArrayList<Game>?> {
         return withContext(dispatcher) {
             return@withContext safeCall {
-                service.getGamesByName(
-                    name ,getGamesByNameQuery())
+                service.getGamesByName(name ,getGamesByNameQuery())
             }
         }
     }
@@ -49,6 +47,7 @@ class GameRepositoryImpl @Inject constructor(
 
 
         const val GAME_FETCH_NUMBER = 50
+        private const val GAME_FETCH_NUMBER_TO_QUERY_BY_NAME = 30
 
         /**
          * Calcula el offset para la query
@@ -63,7 +62,7 @@ class GameRepositoryImpl @Inject constructor(
         fun getGamesByNameQuery() : String {
             return "id, name, first_release_date,summary, storyline, cover.url, platforms.name," +
                     "platforms.platform_logo.url, category, genres.name,rating, rating_count, total_rating," +
-                    "total_rating_count,url,screenshots.url;"
+                    "total_rating_count,url,screenshots.url; limit $GAME_FETCH_NUMBER_TO_QUERY_BY_NAME; where category = (0, 1, 8, 9)"
         }
 
         /**

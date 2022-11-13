@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -47,6 +48,11 @@ class GameDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = GameDetailsFragmentBinding.inflate(inflater, container, false)
+        if(args.comeFromMyGames) {
+            binding.buttonToWishOrComplete.text = resources.getText(R.string.finished_button)
+        } else {
+            binding.buttonToWishOrComplete.text = resources.getText(R.string.add_button)
+        }
         return binding.root
     }
 
@@ -117,49 +123,60 @@ class GameDetailsFragment : Fragment() {
             binding.summary.text = this.summary
             binding.storyline.text = this.storyline
 
-            /**
-             * TODO: Hacer que el botón añada el juego a la base de datos
-             */
-            binding.buttonToWishList.setOnClickListener {
-
-                val data = hashMapOf(
-                    "id" to game.id,
-                    "cover" to game.cover,
-                    "genres" to game.genres,
-                    "name" to game.name,
-                    "platforms" to game.platforms,
-                    "storyline" to game.storyline,
-                    "summary" to game.summary,
-                    "url" to game.url,
-                    "releaseDate" to game.releaseDate,
-                    "rating" to game.rating,
-                    "totalRating" to game.rating,
-                    "ratingCount" to game.ratingCount,
-                    "screenshots" to game.screenshots,
-                    "complete" to game.complete)
-
-
-                db.collection("games").document(game.id.toString()).set(data)
-                    .addOnSuccessListener {
-                        Toast.makeText(context, "Game saved into wish list!", Toast.LENGTH_SHORT).show()
-                    }
-                    .addOnCanceledListener {
-                        Toast.makeText(context, "Failed saving the game into wish list!", Toast.LENGTH_SHORT).show()
-                    }
-            }
-
-            binding.buttonComplete.setOnClickListener {
-
-                db.collection("games").document(game.id.toString()).update("complete", true)
-                    .addOnSuccessListener {
-                        Toast.makeText(context, "Game setted as complete!", Toast.LENGTH_SHORT).show()
-                    }
-                    .addOnCanceledListener {
-                        Toast.makeText(context, "Failed to save the game state to complete!", Toast.LENGTH_SHORT).show()
-                    }
+            binding.buttonToWishOrComplete.setOnClickListener {
+                if(args.comeFromMyGames) {
+                    setCompleted()
+                } else {
+                    saveGame()
+                }
             }
         }
+    }
 
+    private fun saveGame() {
+        val data = hashMapOf(
+            "id" to game.id,
+            "cover" to game.cover,
+            "genres" to game.genres,
+            "name" to game.name,
+            "platforms" to game.platforms,
+            "storyline" to game.storyline,
+            "summary" to game.summary,
+            "url" to game.url,
+            "releaseDate" to game.releaseDate,
+            "rating" to game.rating,
+            "totalRating" to game.rating,
+            "ratingCount" to game.ratingCount,
+            "screenshots" to game.screenshots,
+            "complete" to game.complete
+        )
+
+
+        db.collection("games").document(game.id.toString()).set(data)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Game saved into wish list!", Toast.LENGTH_SHORT).show()
+            }
+            .addOnCanceledListener {
+                Toast.makeText(
+                    context,
+                    "Failed saving the game into wish list!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
+
+    private fun setCompleted() {
+        db.collection("games").document(game.id.toString()).update("complete", true)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Game setted as complete!", Toast.LENGTH_SHORT).show()
+            }
+            .addOnCanceledListener {
+                Toast.makeText(
+                    context,
+                    "Failed to save the game state to complete!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
     }
 
     override fun onDestroyView() {

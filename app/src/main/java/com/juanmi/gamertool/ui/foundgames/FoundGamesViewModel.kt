@@ -36,9 +36,7 @@ class FoundGamesViewModel @Inject constructor(repository: GameRepository) : View
 
     fun onGameClicked(gameClicked: Game, view: View) {
         val action = FoundGamesFragmentDirections
-            .actionFoundGamesFragmentToGameDetailsFragment(
-                gameClicked
-            )
+            .actionFoundGamesFragmentToGameDetailsFragment(gameClicked, false)
         view.findNavController().navigate(action)
     }
 

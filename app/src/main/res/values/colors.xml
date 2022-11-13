@@ -13,6 +13,6 @@
     <color name="GamerToolgray">#FF343A44</color>
     <color name="GamerToolsoftGray">#FF565C66</color>
     <color name="GamerTooltextSoftGray">#FF898F99</color>
-    <color name="backgroundViolet">#FF9763F8</color>
+    <color name="backgroundColor">#62727b</color>
     <color name="snackbarColor">#FF672EF5</color>
 </resources>

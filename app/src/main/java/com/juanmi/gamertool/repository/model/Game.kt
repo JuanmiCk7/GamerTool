@@ -1,11 +1,13 @@
 package com.juanmi.gamertool.repository.model
 
 
-import android.os.Build
 import android.os.Parcelable
-import androidx.annotation.RequiresApi
+import android.util.Log
+import com.google.firebase.firestore.PropertyName
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
-import java.time.format.DateTimeFormatter
+import java.text.SimpleDateFormat
+import java.util.*
 
 @Parcelize
 data class Game(
@@ -17,9 +19,9 @@ data class Game(
     val storyline: String? = "",
     val summary: String? = "",
     val url: String? = "",
-    val releaseDate: Long? = 0,
-    val rating: Double? = 0.0,
-    val totalRating: Double? = 0.0,
+    @SerializedName("first_release_date") val releaseDate: Long? = 0,
+    @SerializedName("rating") val rating: Double? = 0.0,
+    @SerializedName("total_rating") val totalRating: Double? = 0.0,
     val ratingCount: Int? = 0,
     val screenshots: List<GameScreenshot>? = listOf(),
     val complete: Boolean = false
@@ -38,9 +40,21 @@ fun Game.getPlatformsNames(): String {
     return stringResult
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
+fun Game.getGenres() : String {
+    var genresString = ""
+    if (!this.genres.isNullOrEmpty()) {
+        genresString = this.genres[0].name
+        if (this.genres.size > 1) {
+            for (i in 1 until this.genres.size) {
+                genresString += ", ${this.genres[i].name}"
+            }
+        }
+    }
+    return genresString
+}
+
 fun Game.getReleaseDate(): String {
-    val dateFromTimeStamp = DateTimeFormatter.ISO_INSTANT
-        .format(java.time.Instant.ofEpochSecond(this.releaseDate ?: 0))
-    return dateFromTimeStamp.subSequence(0, 4).toString()
+    val sfd = SimpleDateFormat("dd/MM/yyyy", Locale.GERMANY)
+    val netDate = Date(this.releaseDate?.times(1000)!!.toLong())
+    return sfd.format(netDate).toString()
 }

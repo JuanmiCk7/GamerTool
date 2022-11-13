@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.FoundGamesFragmentBinding
 import com.juanmi.gamertool.repository.model.Game
-import com.juanmi.gamertool.ui.gamedetails.GameDetailsFragmentArgs
 import com.juanmi.gamertool.ui.paging.FooterLoaderAdapter
 import com.juanmi.gamertool.ui.paging.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint

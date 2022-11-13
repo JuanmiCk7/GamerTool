@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.GameItemBinding
 import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.repository.model.getGenres
 import com.juanmi.gamertool.repository.model.getPlatformsNames
 import com.juanmi.gamertool.repository.model.getReleaseDate
 import com.juanmi.gamertool.utils.formatCoverImageUrl
@@ -97,7 +98,17 @@ class GameListPagingAdapter(
                 itemBinding.date.visibility = View.INVISIBLE
             }
 
-            game.platforms?.let {
+            game.genres?.let {
+                val genres = game.getGenres()
+                if(genres.isEmpty()) {
+                    itemBinding.genres.visibility = View.INVISIBLE
+                } else {
+                    itemBinding.genres.text = genres
+                }
+            }
+
+
+            /*game.platforms?.let {
                 val platformString = game.getPlatformsNames()
                 if (platformString.isNullOrEmpty()) {
                     itemBinding.platform.visibility = View.INVISIBLE
@@ -106,7 +117,7 @@ class GameListPagingAdapter(
                 }
             } ?: run {
                 itemBinding.platform.visibility = View.INVISIBLE
-            }
+            }*/
 
             game.rating?.let {
                 itemBinding.ratingBar.rating = (game.rating / 20).toFloat()

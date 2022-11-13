@@ -28,6 +28,9 @@
         <argument
             android:name="game"
             app:argType="com.juanmi.gamertool.repository.model.Game" />
+        <argument
+            android:name="comeFromMyGames"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/SearchFragment"

@@ -37,9 +37,7 @@ class MyGamesViewModel : ViewModel() {
 
     fun onGameClicked(gameClicked: Game, view: View) {
         val action = MyGamesFragmentDirections
-            .actionMyGamesFragmentToGameDetailsFragment(
-                gameClicked
-            )
+            .actionMyGamesFragmentToGameDetailsFragment(gameClicked, true)
         view.findNavController().navigate(action)
     }
 

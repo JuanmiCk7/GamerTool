@@ -1,5 +1,6 @@
 package com.juanmi.gamertool.ui.paging
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.juanmi.gamertool.core.network.ResultData
@@ -9,12 +10,10 @@ import com.juanmi.gamertool.repository.retrofit.GameRepository
 class GameSearchPagingSource(private val repository: GameRepository, private val gameName: String) :
     PagingSource<Int, Game>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Game> {
-        val pageNumber = params.key ?: 1
         return try {
             val response = repository.getGamesByName(gameName)
             var resultData: ArrayList<Game>? = null
-            if (response is ResultData.Success
-            ) {
+            if (response is ResultData.Success) {
                 resultData = response.data
             }
 
