@@ -5,8 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
-import androidx.paging.*
-import com.juanmi.gamertool.core.Event
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.juanmi.gamertool.repository.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
 import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
@@ -22,7 +24,7 @@ class FoundGamesViewModel @Inject constructor(repository: GameRepository) : View
     val games: LiveData<ArrayList<Game>> = _games
 
     private val _gameName = MutableLiveData<String>()
-    val gameName: LiveData<String> = _gameName
+    private val gameName: LiveData<String> = _gameName
 
     @ExperimentalPagingApi
     val gameList: Flow<PagingData<Game>> =

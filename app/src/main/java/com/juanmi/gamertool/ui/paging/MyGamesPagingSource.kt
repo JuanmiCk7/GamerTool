@@ -1,25 +1,22 @@
 package com.juanmi.gamertool.ui.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.toObject
+import com.juanmi.gamertool.repository.auth.AuthRepository
+import com.juanmi.gamertool.repository.firestore.FirestoreRepository
 import com.juanmi.gamertool.repository.model.Game
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.tasks.await
 
-
-class MyGamesPagingSource
+class MyGamesPagingSource(private val repository: FirestoreRepository, private val authRepository: AuthRepository)
     : PagingSource<Int, Game>() {
 
-    var games: ArrayList<Game>? = null
-    private val db = FirebaseFirestore.getInstance()
-
-    override suspend fun load(params: PagingSource.LoadParams<Int>): LoadResult<Int, Game> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Game> {
 
         return try {
             LoadResult.Page(
-                data = db.collection("games").get().await().toObjects(Game::class.java),
+                data = repository.getAllGames(authRepository.currentUser!!),
                 prevKey = null,
                 nextKey = null
             )

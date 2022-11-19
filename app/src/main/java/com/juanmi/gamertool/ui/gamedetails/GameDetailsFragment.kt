@@ -1,35 +1,34 @@
 package com.juanmi.gamertool.ui.gamedetails
 
 
-import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.view.isVisible
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.firestore.FirebaseFirestore
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.GameDetailsFragmentBinding
 import com.juanmi.gamertool.repository.model.Game
-import com.juanmi.gamertool.repository.model.getPlatformsNames
+import com.juanmi.gamertool.repository.model.getGenres
 import com.juanmi.gamertool.repository.model.getReleaseDate
 import com.juanmi.gamertool.ui.gamedetails.adapters.ScreenshotsAdapter
 import com.juanmi.gamertool.utils.formatCoverImageUrl
 import com.juanmi.gamertool.utils.formatScreenshotBackgroundImageUrl
-import com.juanmi.gamertool.utils.setStarsProgressColor
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GameDetailsFragment : Fragment() {
 
-    private val db = FirebaseFirestore.getInstance()
+
 
     private var _binding: GameDetailsFragmentBinding? = null
     private val binding get() = _binding!!
@@ -48,11 +47,9 @@ class GameDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = GameDetailsFragmentBinding.inflate(inflater, container, false)
-        if(args.comeFromMyGames) {
-            binding.buttonToWishOrComplete.text = resources.getText(R.string.finished_button)
-        } else {
-            binding.buttonToWishOrComplete.text = resources.getText(R.string.add_button)
-        }
+        game = args.game
+        comeFromMyGames()
+        isFromFirestore()
         return binding.root
     }
 
@@ -60,7 +57,6 @@ class GameDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         defineObservables()
-        game = args.game
         viewModel.setGameModel(args.game)
     }
 
@@ -91,92 +87,67 @@ class GameDetailsFragment : Fragment() {
             binding.title.text = this.name
             binding.date.text = this.getReleaseDate()
 
-            val stars = binding.ratingBar.progressDrawable as LayerDrawable
+            /*val stars = binding.ratingBar.progressDrawable as LayerDrawable
             stars.setStarsProgressColor(
                 resources.getColor(R.color.GamerToolsoftViolet),
                 resources.getColor(R.color.GamerToolsoftGray)
             )
-            binding.ratingBar.progressDrawable = stars
+            binding.ratingBar.progressDrawable = stars*/
 
             try {
                 Picasso.get()
                     .load(this.cover!!.url.formatCoverImageUrl())
-                    .placeholder(R.drawable.igdb_cover)
-                    .error(R.drawable.igdb_cover)
+                    .placeholder(R.drawable.gamertool_cover)
+                    .error(R.drawable.gamertool_cover)
                     .into(binding.gameCover)
             } catch (e: Exception) {
-                binding.gameCover.setImageDrawable(resources.getDrawable(R.drawable.ic_no_image_24))
+                binding.gameCover.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_no_image_24))
             }
 
             try {
                 Picasso.get()
                     .load(this.screenshots!!.first().url.formatScreenshotBackgroundImageUrl())
-                    .placeholder(R.drawable.igdb_app_background)
-                    .error(R.drawable.igdb_app_background)
+                    .placeholder(R.drawable.gamertool_cover)
+                    .error(R.drawable.gamertool_cover)
                     .into(binding.headerBackground)
             } catch (e: Exception) {
-                binding.headerBackground.setImageDrawable(resources.getDrawable(R.drawable.ic_no_image_24))
+                binding.gameCover.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_no_image_24))
             }
 
-            binding.platforms.text = this.getPlatformsNames()
+
+
+            binding.genresTextView.text = this.getGenres()
 
             binding.summary.text = this.summary
             binding.storyline.text = this.storyline
 
             binding.buttonToWishOrComplete.setOnClickListener {
                 if(args.comeFromMyGames) {
-                    setCompleted()
+                    viewModel.setCompleted(game, requireContext())
                 } else {
-                    saveGame()
+                    viewModel.saveGame(game, requireContext())
                 }
+            }
+
+            binding.deleteButton.setOnClickListener {
+                viewModel.deleteGame(game, requireContext(), requireView())
             }
         }
     }
 
-    private fun saveGame() {
-        val data = hashMapOf(
-            "id" to game.id,
-            "cover" to game.cover,
-            "genres" to game.genres,
-            "name" to game.name,
-            "platforms" to game.platforms,
-            "storyline" to game.storyline,
-            "summary" to game.summary,
-            "url" to game.url,
-            "releaseDate" to game.releaseDate,
-            "rating" to game.rating,
-            "totalRating" to game.rating,
-            "ratingCount" to game.ratingCount,
-            "screenshots" to game.screenshots,
-            "complete" to game.complete
-        )
-
-
-        db.collection("games").document(game.id.toString()).set(data)
-            .addOnSuccessListener {
-                Toast.makeText(context, "Game saved into wish list!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnCanceledListener {
-                Toast.makeText(
-                    context,
-                    "Failed saving the game into wish list!",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+    private fun isFromFirestore() {
+        Log.d("WHERE", "I come from firestore" + game.comesFromFirestore)
+        if(!game.comesFromFirestore) {
+            binding.deleteButton.visibility = View.INVISIBLE
+        }
     }
 
-    private fun setCompleted() {
-        db.collection("games").document(game.id.toString()).update("complete", true)
-            .addOnSuccessListener {
-                Toast.makeText(context, "Game setted as complete!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnCanceledListener {
-                Toast.makeText(
-                    context,
-                    "Failed to save the game state to complete!",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+    private fun comeFromMyGames() {
+        if(args.comeFromMyGames) {
+            binding.buttonToWishOrComplete.text = resources.getText(R.string.finished_button)
+        } else {
+            binding.buttonToWishOrComplete.text = resources.getText(R.string.add_button)
+        }
     }
 
     override fun onDestroyView() {

@@ -3,16 +3,10 @@ package com.juanmi.gamertool
 
 import android.os.Bundle
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.MainActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         super.onCreate(savedInstanceState)
 
@@ -37,8 +32,24 @@ class MainActivity : AppCompatActivity() {
 
         val navController = navHostFragment.navController
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when(destination.id) {
+                R.id.loginFragment -> hideBottomNav()
+                R.id.registerFragment -> hideBottomNav()
+                else -> showBottomNav()
+            }
+        }
+
         bottomNavigationView.setupWithNavController(navController)
 
+    }
+
+    private fun hideBottomNav() {
+        binding.bottomNavigationView.visibility = View.GONE
+    }
+
+    private fun showBottomNav() {
+        binding.bottomNavigationView.visibility = View.VISIBLE
     }
 
 }

@@ -1,6 +1,5 @@
 package com.juanmi.gamertool.repository.retrofit
 
-import android.util.Log
 import com.juanmi.gamertool.core.network.ResultData
 import com.juanmi.gamertool.core.safeCall
 import com.juanmi.gamertool.repository.model.Game

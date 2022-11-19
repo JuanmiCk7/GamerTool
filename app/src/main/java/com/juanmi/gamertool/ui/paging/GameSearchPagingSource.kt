@@ -1,6 +1,5 @@
 package com.juanmi.gamertool.ui.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.juanmi.gamertool.core.network.ResultData

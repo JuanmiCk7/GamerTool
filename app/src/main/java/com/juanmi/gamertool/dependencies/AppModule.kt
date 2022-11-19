@@ -1,9 +1,14 @@
 package com.juanmi.gamertool.dependencies
 
+import com.google.firebase.auth.FirebaseAuth
 import com.juanmi.gamertool.core.network.ApiClient
+import com.juanmi.gamertool.repository.auth.AuthRepository
+import com.juanmi.gamertool.repository.auth.AuthRepositoryImpl
+import com.juanmi.gamertool.repository.firestore.FirestoreRepository
+import com.juanmi.gamertool.repository.firestore.FirestoreRepositoryImpl
+import com.juanmi.gamertool.repository.retrofit.GameRepository
 import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
 import com.juanmi.gamertool.repository.retrofit.GameService
-import com.juanmi.gamertool.repository.retrofit.GameRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,6 +24,18 @@ object AppModule {
         service: GameService
     ): GameRepository =
         GameRepositoryImpl(service)
+
+    @Provides
+    @Singleton
+    fun providesFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
+
+    @Provides
+    @Singleton
+    fun providesAuthRepository(impl: AuthRepositoryImpl): AuthRepository = impl
+
+    @Provides
+    @Singleton
+    fun provideFirestoreRepository(): FirestoreRepository = FirestoreRepositoryImpl()
 
     @Provides
     @Singleton

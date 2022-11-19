@@ -2,8 +2,6 @@ package com.juanmi.gamertool.repository.model
 
 
 import android.os.Parcelable
-import android.util.Log
-import com.google.firebase.firestore.PropertyName
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
@@ -24,7 +22,8 @@ data class Game(
     @SerializedName("total_rating") val totalRating: Double? = 0.0,
     val ratingCount: Int? = 0,
     val screenshots: List<GameScreenshot>? = listOf(),
-    val complete: Boolean = false
+    val complete: Boolean = false,
+    val comesFromFirestore: Boolean = false
 ) : Parcelable
 
 fun Game.getPlatformsNames(): String {

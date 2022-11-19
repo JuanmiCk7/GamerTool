@@ -5,21 +5,39 @@
       <map>
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable-v24/all_games_icon.xml" value="0.314" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/all_games_button.xml" value="0.313" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/all_games_button_24.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/btn_custom.xml" value="0.127" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/completed_24.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/et_custom.xml" value="0.127" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_add_24.xml" value="0.314" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_arrow_left.xml" value="0.127" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_arrow_right.xml" value="0.127" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_baseline_videogame_asset_24.xml" value="0.314" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_broken_image_24.xml" value="0.314" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_crop_square_24.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_image_24.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_link_24.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/ic_no_image_24.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/igdb_app_background.xml" value="0.3825" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/my_games_button_24.xml" value="0.3825" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/drawable/my_games_icon.xml" value="0.314" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/activity_main.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/browser_fragment.xml" value="0.34322916666666664" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/content_main.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/found_games_fragment.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_details_fragement.xml" value="0.55" />
-        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_details_fragment.xml" value="0.40208333333333335" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_details_fragment.xml" value="0.39631336405529954" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_item.xml" value="0.55" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/loading_footer.xml" value="0.55" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/login_fragment.xml" value="0.2900505902192243" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/main_activity.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/main_fragment.xml" value="0.34427083333333336" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/my_account_fragment.xml" value="0.25462962962962965" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/my_games_fragment.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/mygames_fragment.xml" value="0.3421875" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/register_fragment.xml" value="0.4583333333333333" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/screenshot_item.xml" value="0.4512820512820513" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/search_fragment.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/menu/navigation.xml" value="0.375" />

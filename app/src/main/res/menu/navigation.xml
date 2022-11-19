@@ -3,16 +3,21 @@
     <item
         android:id="@+id/MainFragment"
         android:icon="@drawable/all_games_button_24"
-        android:title="All"/>
+        android:title="@string/all_item_menu"/>
 
     <item
         android:id="@+id/browserFragment"
         android:icon="@drawable/search_button_24"
-        android:title="Search"/>
+        android:title="@string/search_item_menu"/>
 
     <item
         android:id="@+id/MyGamesFragment"
         android:icon="@drawable/my_games_button_24"
-        android:title="My Games"/>
+        android:title="@string/my_games_item_menu"/>
+
+    <item
+        android:id="@+id/myAccountFragment"
+        android:icon="@drawable/my_account_24"
+        android:title="@string/account_item_menu"/>
 
 </menu>

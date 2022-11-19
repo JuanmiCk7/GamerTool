@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -48,17 +48,17 @@ class MyGamesFragment : Fragment() {
         }
 
         binding.swipeContainer.setColorSchemeResources(
-            R.color.GamerToolstrongViolet,
-            R.color.GamerToolstrongViolet,
-            R.color.GamerToolstrongViolet,
-            R.color.GamerToolstrongViolet,
+            R.color.GamerToolstrongBlue,
+            R.color.GamerToolstrongBlue,
+            R.color.GamerToolstrongBlue,
+            R.color.GamerToolstrongBlue,
         )
 
         pagingAdapter = GameListPagingAdapter(
             { game -> onGameClicked(game) },
             { finishRefreshing() },
-            resources.getColor(R.color.GamerToolsoftViolet),
-            resources.getColor(R.color.GamerToolsoftGray),
+            ContextCompat.getColor(requireContext(), R.color.GamerToolsoftBlue),
+            ContextCompat.getColor(requireContext(), R.color.GamerToolsoftGray),
             AppCompatResources.getDrawable(requireContext(), R.drawable.ic_no_image_24)!!
         )
 
@@ -75,6 +75,8 @@ class MyGamesFragment : Fragment() {
                 pagingAdapter.submitData(pagingData)
             }
         }
+
+
     }
 
     private fun onGameClicked(game: Game) {

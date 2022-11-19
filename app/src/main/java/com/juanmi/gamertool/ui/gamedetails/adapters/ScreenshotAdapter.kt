@@ -50,8 +50,8 @@ class ScreenshotsAdapter(
             try {
                 Picasso.get()
                     .load(screenshot.url.formatScreenshotImageUrl())
-                    .placeholder(R.drawable.igdb_cover)
-                    .error(R.drawable.igdb_cover)
+                    .placeholder(R.drawable.gamertool_cover)
+                    .error(R.drawable.gamertool_cover)
                     .into(itemBinding.screenshotImage)
             } catch (e: Exception) {
                 itemBinding.screenshotImage.setImageDrawable(drawableFallbackImage)

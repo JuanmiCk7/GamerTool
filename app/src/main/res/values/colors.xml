@@ -8,11 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="GamerToolsoftViolet">#FF8652f6</color>
-    <color name="GamerToolstrongViolet">#FF672EF5</color>
-    <color name="GamerToolgray">#FF343A44</color>
-    <color name="GamerToolsoftGray">#FF565C66</color>
-    <color name="GamerTooltextSoftGray">#FF898F99</color>
-    <color name="backgroundColor">#62727b</color>
-    <color name="snackbarColor">#FF672EF5</color>
+    <color name="GamerToolsoftBlue">#0073FF</color>
+    <color name="GamerToolstrongBlue">#0921F8</color>
+    <color name="GamerToolgray">#262B33</color>
+    <color name="GamerToolsoftGray">#838C9A</color>
+    <color name="GamerTooltextSoftGray">#C4C6CA</color>
+    <color name="backgroundColor">#FFFFFFFF</color>
+    <color name="snackbarColor">#2979ff</color>
 </resources>

@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:theme="@style/Theme.GamerTool.PurpleAccent" />
+        android:theme="@style/Theme.GamerTool.BlueAccent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/retry_button"
@@ -31,5 +31,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Retry"
-        app:strokeColor="@color/GamerToolstrongViolet" />
+        app:strokeColor="@color/GamerToolstrongBlue" />
 </LinearLayout>

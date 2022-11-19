@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.GamerTool" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/GamerToolsoftViolet</item>
-        <item name="colorPrimaryVariant">@color/GamerToolstrongViolet</item>
+        <item name="colorPrimary">@color/GamerToolsoftBlue</item>
+        <item name="colorPrimaryVariant">@color/GamerToolstrongBlue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -19,8 +19,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.GamerTool.PurpleAccent">
-        <item name="colorAccent">@color/GamerToolsoftViolet</item> <!-- Whatever color you want-->
+    <style name="Theme.GamerTool.BlueAccent">
+        <item name="colorAccent">@color/GamerToolsoftBlue</item> <!-- Whatever color you want-->
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />

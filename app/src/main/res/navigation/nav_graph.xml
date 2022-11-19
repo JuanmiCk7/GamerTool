@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/MainFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/MainFragment"
@@ -31,6 +31,9 @@
         <argument
             android:name="comeFromMyGames"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_GameDetailsFragment_to_MyGamesFragment"
+            app:destination="@id/MyGamesFragment" />
     </fragment>
     <fragment
         android:id="@+id/SearchFragment"
@@ -61,5 +64,35 @@
         <action
             android:id="@+id/action_myGamesFragment_to_GameDetailsFragment"
             app:destination="@id/GameDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.juanmi.gamertool.ui.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_MainFragment"
+            app:destination="@id/MainFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.juanmi.gamertool.ui.register.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_MainFragment"
+            app:destination="@id/MainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myAccountFragment"
+        android:name="com.juanmi.gamertool.ui.myaccount.MyAccountFragment"
+        android:label="MyAccountFragment" >
+        <action
+            android:id="@+id/action_myAccountFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

@@ -14,7 +14,6 @@ import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.GameItemBinding
 import com.juanmi.gamertool.repository.model.Game
 import com.juanmi.gamertool.repository.model.getGenres
-import com.juanmi.gamertool.repository.model.getPlatformsNames
 import com.juanmi.gamertool.repository.model.getReleaseDate
 import com.juanmi.gamertool.utils.formatCoverImageUrl
 import com.juanmi.gamertool.utils.setStarsProgressColor
@@ -75,8 +74,8 @@ class GameListPagingAdapter(
             try {
                 Picasso.get()
                     .load(game.cover?.url.formatCoverImageUrl())
-                    .placeholder(R.drawable.igdb_cover)
-                    .error(R.drawable.igdb_cover)
+                    .placeholder(R.drawable.gamertool_cover)
+                    .error(R.drawable.gamertool_cover)
                     .into(itemBinding.gameCover)
             } catch (e: Exception) {
                 itemBinding.gameCover.setImageDrawable(drawableFallbackImage)
@@ -106,18 +105,6 @@ class GameListPagingAdapter(
                     itemBinding.genres.text = genres
                 }
             }
-
-
-            /*game.platforms?.let {
-                val platformString = game.getPlatformsNames()
-                if (platformString.isNullOrEmpty()) {
-                    itemBinding.platform.visibility = View.INVISIBLE
-                } else {
-                    itemBinding.platform.text = platformString
-                }
-            } ?: run {
-                itemBinding.platform.visibility = View.INVISIBLE
-            }*/
 
             game.rating?.let {
                 itemBinding.ratingBar.rating = (game.rating / 20).toFloat()
