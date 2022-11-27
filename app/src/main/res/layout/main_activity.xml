@@ -33,6 +33,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph"
         tools:layout_conversion_absoluteHeight="731dp"
-        tools:layout_conversion_absoluteWidth="411dp" />
+        tools:layout_conversion_absoluteWidth="411dp"
+        tools:layout="@layout/main_fragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

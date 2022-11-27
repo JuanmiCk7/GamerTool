@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/game_item_layout_height"
+    android:layout_marginTop="@dimen/game_item_margin_top"
+    android:background="@drawable/round_outline"
+    android:clipToOutline="true"
+    android:padding="@dimen/game_item_padding"
+    tools:context=".ui.main.MainFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/gameCover"
+        android:adjustViewBounds="true"
+        android:layout_width="@dimen/game_item_cover_size_width"
+        android:layout_height="@dimen/game_item_cover_size"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/round_outline_iv"
+        android:padding="@dimen/game_item_cover_padding"
+        android:progressTint="@color/GamerToolsoftBlue"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48"
+        app:shapeAppearanceOverlay="@style/round_image_view"
+        tools:src="@drawable/gamertool_screenshot" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="296dp"
+        android:layout_height="34dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/roboto_regular"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/game_item_title_size"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/gameCover"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Super Mario Oddyssey ABC DEF GHI JKL MNO PQR STU" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="69dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/roboto_regular"
+        android:maxLines="1"
+        android:textColor="@color/GamerTooltextSoftGray"
+        android:textSize="@dimen/game_item_date_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/gameCover"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="12/12/2012" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="79dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="6dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:rating="2.7"
+        android:stepSize="0.5"
+        app:layout_constraintStart_toEndOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <ImageView
+        android:id="@+id/completeGameImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/completed_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/genres"
+        android:layout_width="219dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Some example text for genres text view"
+        android:textColor="@color/GamerTooltextSoftGray"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gameCover"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.333" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GamerToolgray"
+    tools:context=".ui.gamedetails.GameDetailsFragment">
+
+    <ImageView
+        android:id="@+id/headerBackground"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:alpha="0.4"
+        android:contentDescription="@string/header_of_game_details_fragment"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/gamertool_cover" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/gameCover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_outline_iv"
+        android:elevation="@dimen/screenshot_item_elevation"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/round_image_view"
+        tools:src="@drawable/gamertool_screenshot" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonToWishOrComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="72dp"
+        android:background="@drawable/btn_custom"
+        android:contentDescription="@string/add_button"
+        android:padding="@dimen/game_detail_link_padding"
+        android:scaleType="centerCrop"
+        android:text="@string/add_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:tint="@color/GamerToolsoftBlue"
+        tools:ignore="TextContrastCheck" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="56dp"
+        android:background="@drawable/btn_custom_red"
+        android:contentDescription="@string/delete_button"
+        android:padding="@dimen/game_detail_link_padding"
+        android:scaleType="centerCrop"
+        android:text="@string/delete_button"
+        app:backgroundTint="@color/GamerToolRed"
+        app:layout_constraintEnd_toStartOf="@+id/buttonToWishOrComplete"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:tint="@color/GamerToolRed"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/genresTextView"
+        android:layout_width="135dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-thin"
+        android:padding="0dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/game_detail_platform_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="RPG, Sports, Adventures" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/game_detail_date_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/gameCover"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="19/09/2019" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/game_detail_title_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@+id/gameCover"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Super Mario Oddyssey ABC DEF GHI JKL MNO PQR STU" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/game_detail_scrollview_marginbottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerBackground">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/screenshotsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/game_detail_screenshots_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/blueHorizontalSeparator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/game_detail_grayhorizontalseparator_height"
+                android:background="@color/GamerToolsoftBlue"
+                android:paddingVertical="@dimen/game_detail_grayhorizontalseparator_paddingvertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/screenshotsRecyclerView" />
+
+
+            <TextView
+                android:id="@+id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:padding="@dimen/game_detail_summary_padding"
+                android:textColor="@color/GamerTooltextSoftGray"
+                android:textSize="@dimen/game_detail_summary_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/screenshotsRecyclerView"
+                tools:text="@string/summary_sample_text" />
+
+            <TextView
+                android:id="@+id/storyline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:padding="@dimen/game_detail_storyline_padding"
+                android:textColor="@color/GamerToolsoftGray"
+                android:textSize="@dimen/game_detail_storyline_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/summary"
+                tools:text="@string/storyline_sample_text" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/storyline" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

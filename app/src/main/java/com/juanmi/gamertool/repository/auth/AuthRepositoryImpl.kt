@@ -3,10 +3,13 @@ package com.juanmi.gamertool.repository.auth
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
-import com.juanmi.gamertool.core.AuthResource
+import com.juanmi.gamertool.application.AuthResource
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
+/***
+ * Clase que implementa los métodos utilizados para la autenticación de usuarios.
+ */
 class AuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ) : AuthRepository {
@@ -19,7 +22,6 @@ class AuthRepositoryImpl @Inject constructor(
             val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
             AuthResource.Success(result.user!!)
         } catch (e: Exception) {
-            e.printStackTrace()
             AuthResource.Failure(e)
         }
     }
@@ -30,7 +32,6 @@ class AuthRepositoryImpl @Inject constructor(
             result.user?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())?.await()
             return AuthResource.Success(result.user!!)
         } catch (e: Exception) {
-            e.printStackTrace()
             AuthResource.Failure(e)
         }
     }

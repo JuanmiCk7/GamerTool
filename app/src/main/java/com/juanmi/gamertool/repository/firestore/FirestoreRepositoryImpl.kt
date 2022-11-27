@@ -7,6 +7,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.juanmi.gamertool.repository.model.Game
 import kotlinx.coroutines.tasks.await
 
+/***
+ * Clase que implementa los métodos utilizados para la gestión de juegos en Firestore.
+ */
 class FirestoreRepositoryImpl : FirestoreRepository {
 
     private val db = FirebaseFirestore.getInstance()

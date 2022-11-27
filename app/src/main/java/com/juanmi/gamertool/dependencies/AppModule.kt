@@ -1,7 +1,7 @@
 package com.juanmi.gamertool.dependencies
 
 import com.google.firebase.auth.FirebaseAuth
-import com.juanmi.gamertool.core.network.ApiClient
+import com.juanmi.gamertool.application.api_utils.ApiClient
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.auth.AuthRepositoryImpl
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
@@ -15,6 +15,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/***
+ * Inyección de dependencias con Dagger Hilt utilizando el patrón singleton.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {

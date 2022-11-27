@@ -1,6 +1,6 @@
 package com.juanmi.gamertool.repository.retrofit
 
-import com.juanmi.gamertool.core.network.ResultData
+import com.juanmi.gamertool.application.api_utils.ResultData
 import com.juanmi.gamertool.repository.model.Game
 
 /**
@@ -8,6 +8,5 @@ import com.juanmi.gamertool.repository.model.Game
  */
 interface GameRepository {
     suspend fun getGames(currentPage: Int): ResultData<ArrayList<Game>?>
-
     suspend fun getGamesByName(name: String): ResultData<ArrayList<Game>?>
 }

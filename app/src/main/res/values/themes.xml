@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/GamerToolsoftBlue</item>
         <item name="colorPrimaryVariant">@color/GamerToolstrongBlue</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="fontFamily">@font/roboto_regular</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
@@ -21,6 +22,12 @@
 
     <style name="Theme.GamerTool.BlueAccent">
         <item name="colorAccent">@color/GamerToolsoftBlue</item> <!-- Whatever color you want-->
+    </style>
+
+    <style name="round_image_view">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+        <item name="background">@drawable/gamertool_cover</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />

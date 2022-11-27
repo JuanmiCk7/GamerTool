@@ -7,6 +7,9 @@ import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
 import java.util.*
 
+/***
+ * Clase que define un juego.
+ */
 @Parcelize
 data class Game(
     val id: Int = 0,
@@ -26,19 +29,9 @@ data class Game(
     val comesFromFirestore: Boolean = false
 ) : Parcelable
 
-fun Game.getPlatformsNames(): String {
-    var stringResult = ""
-    if (this.platforms != null && this.platforms.isNotEmpty()) {
-        stringResult = this.platforms[0].name
-        if (this.platforms.size > 1) {
-            for (i in 1 until this.platforms.size) {
-                stringResult += ", ${this.platforms[i].name}"
-            }
-        }
-    }
-    return stringResult
-}
-
+/***
+ * Método utilizado para obtener el género de un juego
+ */
 fun Game.getGenres() : String {
     var genresString = ""
     if (!this.genres.isNullOrEmpty()) {
@@ -52,6 +45,9 @@ fun Game.getGenres() : String {
     return genresString
 }
 
+/***
+ * Método utilizado para obtener la fecha de lanzamiento de un juego.
+ */
 fun Game.getReleaseDate(): String {
     val sfd = SimpleDateFormat("dd/MM/yyyy", Locale.GERMANY)
     val netDate = Date(this.releaseDate?.times(1000)!!.toLong())

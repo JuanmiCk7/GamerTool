@@ -2,12 +2,9 @@ package com.juanmi.gamertool.ui.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.google.firebase.firestore.FirebaseFirestore
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
 import com.juanmi.gamertool.repository.model.Game
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.tasks.await
 
 class MyGamesPagingSource(private val repository: FirestoreRepository, private val authRepository: AuthRepository)
     : PagingSource<Int, Game>() {

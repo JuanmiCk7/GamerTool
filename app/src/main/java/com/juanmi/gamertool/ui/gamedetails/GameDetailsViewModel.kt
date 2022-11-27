@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
-import com.juanmi.gamertool.core.Event
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
 import com.juanmi.gamertool.repository.model.Game
@@ -19,15 +18,10 @@ class GameDetailsViewModel @Inject constructor(firestoreRepository: FirestoreRep
     private val _game = MutableLiveData<Game>()
     val game: LiveData<Game> = _game
 
-    private val _viewState = MutableLiveData<Event<Boolean>>()
-    val viewState: LiveData<Event<Boolean>> = _viewState
-
     val repository = firestoreRepository
 
     fun setGameModel(gameModel: Game) {
         _game.value = gameModel
-        // TODO: define states to give ui responsiveness
-        _viewState.value = Event(true)
     }
 
     fun saveGame(game: Game, context: Context) {

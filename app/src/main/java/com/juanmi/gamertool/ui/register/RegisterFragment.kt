@@ -1,15 +1,16 @@
 package com.juanmi.gamertool.ui.register
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
-import com.juanmi.gamertool.core.AuthResource
+import com.juanmi.gamertool.application.AuthResource
 import com.juanmi.gamertool.databinding.RegisterFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,8 +29,17 @@ class RegisterFragment : Fragment() {
         _binding = RegisterFragmentBinding.inflate(inflater, container, false)
 
         binding.btnRegister.setOnClickListener {
-            if(checkIfUserNotEmpty() && checkIfPasswordNotEmpty() && checkIfRepasswordNotEmpty()) {
-                viewModel.signupUser(binding.etName.text.toString(), binding.etEmail.text.toString(), binding.etPassword.text.toString())
+            hideKeyboard()
+            if(checkIfNoFieldsEmpty()) {
+                if(checkIfPasswordsMatch()) {
+                    viewModel.signupUser(
+                        binding.etName.text.toString(),
+                        binding.etEmail.text.toString(),
+                        binding.etPassword.text.toString()
+                    )
+                } else {
+                    Toast.makeText(requireContext(), "The password must be the same", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(requireContext(), "Not empty fields, please", Toast.LENGTH_SHORT).show()
             }
@@ -44,30 +54,30 @@ class RegisterFragment : Fragment() {
                     Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                 }
                 is AuthResource.Success -> {
-                    Log.d("IMPORTANT FROM FRAGMENT", "No llega hasta el Success")
+                    hideKeyboard()
                     viewModel.logged(requireView())
                 }
             }
         }
 
         binding.leftBtn.setOnClickListener {
+            hideKeyboard()
             viewModel.toLoginFragment(requireView())
         }
 
         return binding.root
     }
 
-    private fun checkIfUserNotEmpty() : Boolean {
-        return binding.etEmail.text.isNotEmpty()
+    private fun Fragment.hideKeyboard() {
+        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
-    private fun checkIfPasswordNotEmpty() : Boolean {
-        return binding.etPassword.text.isNotEmpty()
+    private fun checkIfNoFieldsEmpty() : Boolean {
+        return binding.etEmail.text.isNotEmpty() && binding.etPassword.text.isNotEmpty() && binding.etRepassword.text.isNotEmpty()
     }
 
-    private fun checkIfRepasswordNotEmpty() : Boolean {
-        return binding.etRepassword.text.isNotEmpty()
+    private fun checkIfPasswordsMatch(): Boolean {
+        return binding.etPassword.text.toString() == binding.etRepassword.text.toString()
     }
-
-
 }

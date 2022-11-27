@@ -33,11 +33,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="@string/username_text"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_title_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <TextView
         android:id="@+id/fullname_tv_holder"
@@ -50,15 +50,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullname_tv" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/logoutBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/btn_custom_red"
+        android:contentDescription="@string/delete_button"
+        android:padding="@dimen/game_detail_link_padding"
+        android:scaleType="centerCrop"
         android:text="@string/logout_text"
+        app:backgroundTint="@color/GamerToolRed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_tv_holder" />
+        app:layout_constraintTop_toBottomOf="@+id/email_tv_holder"
+        app:tint="@color/GamerToolRed"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/account_title_tv"
@@ -70,5 +77,15 @@
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/GamerToolsoftBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_title_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@ package com.juanmi.gamertool.ui.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.juanmi.gamertool.core.network.ResultData
+import com.juanmi.gamertool.application.api_utils.ResultData
 import com.juanmi.gamertool.repository.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
 

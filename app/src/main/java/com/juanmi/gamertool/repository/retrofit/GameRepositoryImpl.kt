@@ -1,7 +1,7 @@
 package com.juanmi.gamertool.repository.retrofit
 
-import com.juanmi.gamertool.core.network.ResultData
-import com.juanmi.gamertool.core.safeCall
+import com.juanmi.gamertool.application.api_utils.ResultData
+import com.juanmi.gamertool.application.safeCall
 import com.juanmi.gamertool.repository.model.Game
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
- * Implementación de la interfaz GameRepository
+ * Clase que implementa los métodos utilizados para hacer las peticiones a la API IGDB.
  */
 class GameRepositoryImpl @Inject constructor(
     private val service: GameService,

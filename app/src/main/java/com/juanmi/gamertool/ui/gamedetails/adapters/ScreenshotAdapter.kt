@@ -1,11 +1,11 @@
-package com.juanmi.gamertool.ui.gamedetails.adapters
+  package com.juanmi.gamertool.ui.gamedetails.adapters
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
-import com.juanmi.gamertool.databinding.ScreenshotItemBinding
+import com.juanmi.gamertool.databinding.GameScreenshotBinding
 import com.juanmi.gamertool.repository.model.GameScreenshot
 import com.juanmi.gamertool.utils.formatScreenshotImageUrl
 import com.squareup.picasso.Picasso
@@ -24,7 +24,7 @@ class ScreenshotsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
         val item =
-            ScreenshotItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            GameScreenshotBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(item)
     }
 
@@ -41,7 +41,7 @@ class ScreenshotsAdapter(
     }
 
     inner class ViewHolder(
-        private val itemBinding: ScreenshotItemBinding
+        private val itemBinding: GameScreenshotBinding
     ) : RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(
             screenshot: GameScreenshot,

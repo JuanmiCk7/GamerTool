@@ -72,27 +72,28 @@
         android:layout_height="30dp"
         android:layout_above="@id/swipeRight"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="24dp"
         android:src="@drawable/ic_arrow_right"
         app:layout_constraintBottom_toTopOf="@+id/swipeRight"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_password"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="220dp"
         android:background="@drawable/btn_custom"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/login"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/rightBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
     <TextView
         android:id="@+id/swipeRight"

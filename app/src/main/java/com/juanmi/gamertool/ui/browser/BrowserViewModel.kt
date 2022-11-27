@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 
 class BrowserViewModel: ViewModel() {
-
     fun onSearchClicked(gameName: String, view: View) {
         if(gameName.isNotBlank() || gameName.isNotEmpty()) {
             val action = BrowserFragmentDirections.actionBrowserFragmentToSearchFragment(gameName)

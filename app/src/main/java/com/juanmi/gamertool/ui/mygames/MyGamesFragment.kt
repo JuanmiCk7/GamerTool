@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.MyGamesFragmentBinding
 import com.juanmi.gamertool.repository.model.Game
-import com.juanmi.gamertool.ui.paging.FooterLoaderAdapter
+import com.juanmi.gamertool.ui.paging.LoadStateAdapter
 import com.juanmi.gamertool.ui.paging.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -66,7 +66,7 @@ class MyGamesFragment : Fragment() {
             layoutManager =
                 LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = pagingAdapter.withLoadStateFooter(
-                footer = FooterLoaderAdapter { pagingAdapter.retry() }
+                footer = LoadStateAdapter { pagingAdapter.retry() }
             )
 
         }

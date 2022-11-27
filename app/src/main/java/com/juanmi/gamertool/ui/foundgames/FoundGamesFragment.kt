@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.FoundGamesFragmentBinding
 import com.juanmi.gamertool.repository.model.Game
-import com.juanmi.gamertool.ui.paging.FooterLoaderAdapter
+import com.juanmi.gamertool.ui.paging.LoadStateAdapter
 import com.juanmi.gamertool.ui.paging.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -39,8 +39,8 @@ class FoundGamesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FoundGamesFragmentBinding.inflate(inflater, container, false)
-        setupView()
         viewModel.setGameName(args.gameName)
+        setupView()
         return binding.root
     }
 
@@ -70,7 +70,7 @@ class FoundGamesFragment : Fragment() {
             layoutManager =
                 LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = pagingAdapter.withLoadStateFooter(
-                footer = FooterLoaderAdapter { pagingAdapter.retry() }
+                footer = LoadStateAdapter { pagingAdapter.retry() }
             )
 
         }

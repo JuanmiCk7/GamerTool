@@ -11,7 +11,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
-import com.juanmi.gamertool.databinding.GameItemBinding
+import com.juanmi.gamertool.databinding.RecyclerViewGameBinding
 import com.juanmi.gamertool.repository.model.Game
 import com.juanmi.gamertool.repository.model.getGenres
 import com.juanmi.gamertool.repository.model.getReleaseDate
@@ -30,7 +30,7 @@ class GameListPagingAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         GameViewHolder(
-            GameItemBinding.inflate(
+            RecyclerViewGameBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             ),
             itemClickFunction
@@ -54,7 +54,7 @@ class GameListPagingAdapter(
     }
 
     inner class GameViewHolder(
-        private val itemBinding: GameItemBinding,
+        private val itemBinding: RecyclerViewGameBinding,
         private val clickFunction: (Game) -> Unit,
     ) : RecyclerView.ViewHolder(itemBinding.root) {
 

@@ -3,7 +3,6 @@ package com.juanmi.gamertool.ui.gamedetails
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,8 +26,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class GameDetailsFragment : Fragment() {
-
-
 
     private var _binding: GameDetailsFragmentBinding? = null
     private val binding get() = _binding!!
@@ -56,15 +53,8 @@ class GameDetailsFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        defineObservables()
         viewModel.setGameModel(args.game)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun defineObservables() {
-        viewModel.viewState.observe(viewLifecycleOwner) {
-            setupView()
-        }
+        setupView()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -87,13 +77,6 @@ class GameDetailsFragment : Fragment() {
             binding.title.text = this.name
             binding.date.text = this.getReleaseDate()
 
-            /*val stars = binding.ratingBar.progressDrawable as LayerDrawable
-            stars.setStarsProgressColor(
-                resources.getColor(R.color.GamerToolsoftViolet),
-                resources.getColor(R.color.GamerToolsoftGray)
-            )
-            binding.ratingBar.progressDrawable = stars*/
-
             try {
                 Picasso.get()
                     .load(this.cover!!.url.formatCoverImageUrl())
@@ -113,8 +96,6 @@ class GameDetailsFragment : Fragment() {
             } catch (e: Exception) {
                 binding.gameCover.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_no_image_24))
             }
-
-
 
             binding.genresTextView.text = this.getGenres()
 
@@ -136,7 +117,6 @@ class GameDetailsFragment : Fragment() {
     }
 
     private fun isFromFirestore() {
-        Log.d("WHERE", "I come from firestore" + game.comesFromFirestore)
         if(!game.comesFromFirestore) {
             binding.deleteButton.visibility = View.INVISIBLE
         }

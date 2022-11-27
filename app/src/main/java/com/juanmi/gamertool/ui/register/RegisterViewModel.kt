@@ -1,13 +1,11 @@
 package com.juanmi.gamertool.ui.register
 
 import android.view.View
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseUser
-import com.juanmi.gamertool.core.AuthResource
+import com.juanmi.gamertool.application.AuthResource
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,9 +23,6 @@ class RegisterViewModel @Inject constructor(
 
     private val _signupFlow = MutableStateFlow<AuthResource<FirebaseUser>?>(null)
     val signupFlow: StateFlow<AuthResource<FirebaseUser>?> = _signupFlow
-
-    val currentUser: FirebaseUser?
-        get() = repository.currentUser
 
     init {
         if (repository.currentUser != null) {

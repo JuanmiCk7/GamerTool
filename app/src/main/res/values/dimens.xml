@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="sreenshot_item_margin">5dp</dimen>
-    <dimen name="screenshot_item_width">160dp</dimen>
+    <dimen name="screenshot_item_width">180dp</dimen>
     <dimen name="screenshot_item_height">120dp</dimen>
     <dimen name="screenshot_item_elevation">2dp</dimen>
-    <dimen name="game_item_layout_height">140dp</dimen>
+    <dimen name="game_item_layout_height">110dp</dimen>
     <dimen name="game_item_margin_top">2dp</dimen>
     <dimen name="game_item_padding">4dp</dimen>
-    <dimen name="game_item_cover_size">115dp</dimen>
+    <dimen name="game_item_cover_size">105dp</dimen>
+    <dimen name="game_item_cover_size_width">81dp</dimen>
     <dimen name="game_item_cover_padding">4dp</dimen>
-    <dimen name="game_item_title_size">18sp</dimen>
-    <dimen name="game_item_date_size">16sp</dimen>
+    <dimen name="game_item_title_size">14sp</dimen>
+    <dimen name="game_item_date_size">12sp</dimen>
     <dimen name="vertical_separator_width">2dp</dimen>
     <dimen name="vertical_separator_height">10dp</dimen>
     <dimen name="vertical_separator_marginstart">5dp</dimen>
