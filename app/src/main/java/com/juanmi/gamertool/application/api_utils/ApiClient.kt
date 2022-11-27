@@ -2,6 +2,7 @@ package com.juanmi.gamertool.application.api_utils
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.juanmi.gamertool.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -17,8 +18,8 @@ class ApiClient(
 ) {
 
     companion object {
-        const val clientId = "8orzksqv1wskerp8nn2kvipkf9pvn2"
-        const val token = "Bearer j0tv6obv0m4orspbil21dglkdms1t3"
+        const val clientId = BuildConfig.CLIENT_ID
+        const val token = BuildConfig.TOKEN
     }
 
     private var gson: Gson? = null
