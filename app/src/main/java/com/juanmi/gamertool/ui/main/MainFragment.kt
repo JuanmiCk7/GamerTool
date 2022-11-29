@@ -52,8 +52,6 @@ class MainFragment : Fragment() {
             AppCompatResources.getDrawable(requireContext(), R.drawable.ic_no_image_24)!!
         )
 
-
-
         binding.swipeContainer.setOnRefreshListener {
             gamesAdapter.refreshList()
         }

@@ -52,10 +52,6 @@ class FoundGamesFragment : Fragment() {
             AppCompatResources.getDrawable(requireContext(), R.drawable.ic_no_image_24)!!
         )
 
-        gamesAdapter.withLoadStateFooter(
-            footer = LoadStateAdapter { gamesAdapter.retry() }
-        )
-
         binding.swipeContainer.setOnRefreshListener {
             gamesAdapter.refreshList()
         }
