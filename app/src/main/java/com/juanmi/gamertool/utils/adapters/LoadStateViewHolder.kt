@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.ui.paging
+package com.juanmi.gamertool.utils.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

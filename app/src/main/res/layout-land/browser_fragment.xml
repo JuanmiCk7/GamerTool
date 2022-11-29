@@ -40,7 +40,7 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/insertTextView"
-        android:textColor="@color/GamerToolsoftGray"
+        android:textColor="@color/medium_gray"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title2" />

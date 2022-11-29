@@ -12,7 +12,7 @@ import androidx.paging.PagingData
 import com.juanmi.gamertool.repository.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
 import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
-import com.juanmi.gamertool.ui.paging.GameSearchPagingSource
+import com.juanmi.gamertool.utils.adapters.GameSearchPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -30,7 +30,7 @@ class FoundGamesViewModel @Inject constructor(repository: GameRepository) : View
     val gameList: Flow<PagingData<Game>> =
         Pager(
             config = PagingConfig(
-                pageSize = GameRepositoryImpl.GAME_FETCH_NUMBER,
+                pageSize = GameRepositoryImpl.GAME_PAGE_SIZE,
                 prefetchDistance = 2
             ),
             pagingSourceFactory = { GameSearchPagingSource(repository, gameName.value.orEmpty()) }

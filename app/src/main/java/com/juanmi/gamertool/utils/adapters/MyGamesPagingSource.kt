@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.ui.paging
+package com.juanmi.gamertool.utils.adapters
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

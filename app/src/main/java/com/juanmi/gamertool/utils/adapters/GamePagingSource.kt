@@ -1,27 +1,36 @@
-package com.juanmi.gamertool.ui.paging
+package com.juanmi.gamertool.utils.adapters
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.juanmi.gamertool.application.api_utils.ResultData
+import com.juanmi.gamertool.application.api.ResultData
 import com.juanmi.gamertool.repository.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
+import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
+import retrofit2.HttpException
 
-class GameSearchPagingSource(private val repository: GameRepository, private val gameName: String) :
+class GamesPagingSource(private val repository: GameRepository) :
     PagingSource<Int, Game>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Game> {
+        val pageNumber = params.key ?: 1
         return try {
-            val response = repository.getGamesByName(gameName)
+            val response = repository.getGames(pageNumber)
             var resultData: ArrayList<Game>? = null
-            if (response is ResultData.Success) {
+            var nextPageNumber: Int? = null
+            if (response is ResultData.Success &&
+                response.data!!.size == GameRepositoryImpl.GAME_PAGE_SIZE
+            ) {
+                nextPageNumber = pageNumber + 1
                 resultData = response.data
             }
 
             LoadResult.Page(
                 data = resultData!!.toList(),
                 prevKey = null,
-                nextKey = null
+                nextKey = nextPageNumber
             )
         } catch (e: Exception) {
+            LoadResult.Error(e)
+        } catch (e: HttpException) {
             LoadResult.Error(e)
         }
     }

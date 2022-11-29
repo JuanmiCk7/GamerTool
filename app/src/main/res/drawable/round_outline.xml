@@ -5,7 +5,7 @@
     // The width and color of the border
     <solid
         android:width="4dp"
-        android:color="@color/GamerToolgray" />
+        android:color="@color/gray" />
 
     // The corner radius, reduce it to make it more square
     <corners android:radius="10dp"/>

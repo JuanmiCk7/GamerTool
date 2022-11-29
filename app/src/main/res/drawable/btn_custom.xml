@@ -3,7 +3,7 @@
     android:padding="10dp"
     android:shape="rectangle" >
 
-    <solid android:color="@color/GamerToolsoftBlue" />
+    <solid android:color="@color/blue" />
 
     <corners
         android:bottomLeftRadius="5dp"

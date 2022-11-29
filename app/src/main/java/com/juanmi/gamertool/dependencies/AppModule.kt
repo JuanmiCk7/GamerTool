@@ -1,7 +1,7 @@
 package com.juanmi.gamertool.dependencies
 
 import com.google.firebase.auth.FirebaseAuth
-import com.juanmi.gamertool.application.api_utils.ApiClient
+import com.juanmi.gamertool.application.api.ApiClient
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.auth.AuthRepositoryImpl
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository

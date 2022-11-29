@@ -1,6 +1,6 @@
 package com.juanmi.gamertool.repository.retrofit
 
-import com.juanmi.gamertool.application.api_utils.ResultData
+import com.juanmi.gamertool.application.api.ResultData
 import com.juanmi.gamertool.application.safeCall
 import com.juanmi.gamertool.repository.model.Game
 import kotlinx.coroutines.CoroutineDispatcher
@@ -45,14 +45,14 @@ class GameRepositoryImpl @Inject constructor(
     companion object {
 
 
-        const val GAME_FETCH_NUMBER = 50
-        private const val GAME_FETCH_NUMBER_TO_QUERY_BY_NAME = 30
+        const val GAME_PAGE_SIZE = 50
+        private const val GAME_PAGE_SIZE_TO_QUERY_BY_NAME = 30
 
         /**
          * Calcula el offset para la query
          */
         private fun calculateOffset(currentPage: Int): Int {
-            return (currentPage - 1) * GAME_FETCH_NUMBER
+            return (currentPage - 1) * GAME_PAGE_SIZE
         }
 
         /**
@@ -61,7 +61,7 @@ class GameRepositoryImpl @Inject constructor(
         fun getGamesByNameQuery() : String {
             return "id, name, first_release_date,summary, storyline, cover.url, platforms.name," +
                     "platforms.platform_logo.url, category, genres.name,rating, rating_count, total_rating," +
-                    "total_rating_count,url,screenshots.url; limit $GAME_FETCH_NUMBER_TO_QUERY_BY_NAME; where category = (0, 1, 8, 9)"
+                    "total_rating_count,url,screenshots.url; limit $GAME_PAGE_SIZE; where category = (0, 1, 8, 9)"
         }
 
         /**
@@ -71,7 +71,7 @@ class GameRepositoryImpl @Inject constructor(
             val offset = calculateOffset(currentPage)
             return  "id, name, first_release_date,summary, storyline, cover.url, platforms.name," +
                     "platforms.platform_logo.url, category, genres.name,rating, rating_count, total_rating," +
-                    "total_rating_count,url,screenshots.url;limit $GAME_FETCH_NUMBER; offset $offset; sort rating desc;  where category = (0, 1, 8, 9) & rating != null & total_rating_count >= 100"
+                    "total_rating_count,url,screenshots.url;limit $GAME_PAGE_SIZE; offset $offset; sort rating desc;  where category = (0, 1, 8, 9) & rating != null & total_rating_count >= 100"
         }
 
     }

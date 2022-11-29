@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.ui.paging
+package com.juanmi.gamertool.utils.adapters
 
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -22,9 +24,7 @@ import com.squareup.picasso.Picasso
 class GameListPagingAdapter(
     private val itemClickFunction: (Game) -> Unit,
     private val onFinishRefresh: () -> Unit,
-    private val primaryStarColor: Int,
-    private val secondaryStarColor: Int,
-    private val drawableFallbackImage: Drawable
+    private val errorImage: Drawable
 ) :
     PagingDataAdapter<Game, GameListPagingAdapter.GameViewHolder>(GameComparator) {
 
@@ -41,9 +41,7 @@ class GameListPagingAdapter(
         getItem(position)?.let {
             holder.bind(
                 it,
-                primaryStarColor,
-                secondaryStarColor,
-                drawableFallbackImage
+                errorImage
             )
         }
     }
@@ -61,13 +59,13 @@ class GameListPagingAdapter(
         @RequiresApi(Build.VERSION_CODES.O)
         fun bind(
             game: Game,
-            primaryStarColor: Int,
-            secondaryStarColor: Int,
-            drawableFallbackImage: Drawable
+            errorImage: Drawable
         ) {
             itemBinding.ratingBar.apply {
                 val stars = itemBinding.ratingBar.progressDrawable as LayerDrawable
-                stars.setStarsProgressColor(primaryStarColor, secondaryStarColor)
+                stars.setStarsProgressColor(
+                    ContextCompat.getColor(context, R.color.blue),
+                    ContextCompat.getColor(context, R.color.medium_gray))
                 progressDrawable = stars
             }
 
@@ -78,13 +76,17 @@ class GameListPagingAdapter(
                     .error(R.drawable.gamertool_cover)
                     .into(itemBinding.gameCover)
             } catch (e: Exception) {
-                itemBinding.gameCover.setImageDrawable(drawableFallbackImage)
+                itemBinding.gameCover.setImageDrawable(errorImage)
             }
 
             game.name?.let {
                 itemBinding.title.text = game.name
             } ?: run {
-                itemBinding.title.text = DEFAULT_TITLE_STRING
+                itemBinding.title.text = "Unknown"
+            }
+
+            game.genres?.let {
+                itemBinding.genres.text = game.getGenres()
             }
 
             if(!game.complete) {
@@ -95,15 +97,6 @@ class GameListPagingAdapter(
                 itemBinding.date.text = game.getReleaseDate()
             } ?: run {
                 itemBinding.date.visibility = View.INVISIBLE
-            }
-
-            game.genres?.let {
-                val genres = game.getGenres()
-                if(genres.isEmpty()) {
-                    itemBinding.genres.visibility = View.INVISIBLE
-                } else {
-                    itemBinding.genres.text = genres
-                }
             }
 
             game.rating?.let {
@@ -124,9 +117,5 @@ class GameListPagingAdapter(
 
         override fun areContentsTheSame(oldItem: Game, newItem: Game) =
             oldItem.id == newItem.id && oldItem.name == newItem.name
-    }
-
-    companion object {
-        const val DEFAULT_TITLE_STRING = "Unknown game "
     }
 }

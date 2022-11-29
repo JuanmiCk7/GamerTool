@@ -16,7 +16,7 @@
         android:elevation="@dimen/screenshot_item_elevation"
         android:background="@drawable/round_outline_iv"
         android:padding="@dimen/game_item_cover_padding"
-        android:progressTint="@color/GamerToolsoftBlue"
+        android:progressTint="@color/blue"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

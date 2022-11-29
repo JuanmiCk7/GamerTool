@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/GamerToolgray"
+    android:background="@color/gray"
     tools:context=".ui.gamedetails.GameDetailsFragment">
 
     <ImageView
@@ -48,7 +48,7 @@
         android:text="@string/add_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:tint="@color/GamerToolsoftBlue"
+        app:tint="@color/blue"
         tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.button.MaterialButton
@@ -62,10 +62,10 @@
         android:padding="@dimen/game_detail_link_padding"
         android:scaleType="centerCrop"
         android:text="@string/delete_button"
-        app:backgroundTint="@color/GamerToolRed"
+        app:backgroundTint="@color/red"
         app:layout_constraintEnd_toStartOf="@+id/buttonToWishOrComplete"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:tint="@color/GamerToolRed"
+        app:tint="@color/red"
         tools:ignore="TextContrastCheck" />
 
     <TextView
@@ -141,7 +141,7 @@
                 android:id="@+id/blueHorizontalSeparator"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/game_detail_grayhorizontalseparator_height"
-                android:background="@color/GamerToolsoftBlue"
+                android:background="@color/blue"
                 android:paddingVertical="@dimen/game_detail_grayhorizontalseparator_paddingvertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-thin"
                 android:padding="@dimen/game_detail_summary_padding"
-                android:textColor="@color/GamerTooltextSoftGray"
+                android:textColor="@color/medium_gray"
                 android:textSize="@dimen/game_detail_summary_size"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -169,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-thin"
                 android:padding="@dimen/game_detail_storyline_padding"
-                android:textColor="@color/GamerToolsoftGray"
+                android:textColor="@color/medium_gray"
                 android:textSize="@dimen/game_detail_storyline_size"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

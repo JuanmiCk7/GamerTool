@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.FoundGamesFragmentBinding
 import com.juanmi.gamertool.repository.model.Game
-import com.juanmi.gamertool.ui.paging.LoadStateAdapter
-import com.juanmi.gamertool.ui.paging.GameListPagingAdapter
+import com.juanmi.gamertool.utils.adapters.LoadStateAdapter
+import com.juanmi.gamertool.utils.adapters.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -26,13 +26,12 @@ class FoundGamesFragment : Fragment() {
 
     private var _binding: FoundGamesFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var pagingAdapter: GameListPagingAdapter
+    private lateinit var gamesAdapter: GameListPagingAdapter
 
     private val viewModel: FoundGamesViewModel by viewModels()
 
     private val args: FoundGamesFragmentArgs by navArgs()
 
-    @ExperimentalPagingApi
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,39 +43,30 @@ class FoundGamesFragment : Fragment() {
         return binding.root
     }
 
-    @ExperimentalPagingApi
+    @OptIn(ExperimentalPagingApi::class)
     private fun setupView() {
 
-        binding.swipeContainer.setOnRefreshListener {
-            pagingAdapter.refreshList()
-        }
-
-        binding.swipeContainer.setColorSchemeResources(
-            R.color.GamerToolstrongBlue,
-            R.color.GamerToolstrongBlue,
-            R.color.GamerToolstrongBlue,
-            R.color.GamerToolstrongBlue,
-        )
-
-        pagingAdapter = GameListPagingAdapter(
-            { game -> onGameClicked(game) },
-            { finishRefreshing() },
-            ContextCompat.getColor(requireContext(), R.color.GamerToolsoftBlue),
-            ContextCompat.getColor(requireContext(), R.color.GamerToolsoftGray),
+        gamesAdapter = GameListPagingAdapter(
+            this::onGameClicked,
+            this::finishRefreshing,
             AppCompatResources.getDrawable(requireContext(), R.drawable.ic_no_image_24)!!
         )
+
+        binding.swipeContainer.setOnRefreshListener {
+            gamesAdapter.refreshList()
+        }
 
         binding.gameSearchRecyclerView.apply {
             layoutManager =
                 LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            adapter = pagingAdapter.withLoadStateFooter(
-                footer = LoadStateAdapter { pagingAdapter.retry() }
+            adapter = gamesAdapter.withLoadStateFooter(
+                footer = LoadStateAdapter { gamesAdapter.retry() }
             )
 
         }
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.gameList.collectLatest { pagingData ->
-                pagingAdapter.submitData(pagingData)
+                gamesAdapter.submitData(pagingData)
             }
         }
     }

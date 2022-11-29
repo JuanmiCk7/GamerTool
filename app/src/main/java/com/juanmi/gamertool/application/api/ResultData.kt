@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.application.api_utils
+package com.juanmi.gamertool.application.api
 
 import java.io.IOException
 import java.util.concurrent.TimeoutException

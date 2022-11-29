@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/GameDetailsFragment"
         android:name="com.juanmi.gamertool.ui.gamedetails.GameDetailsFragment"
-        android:label="@string/game_details_fragment_title"
+        android:label="Games Details"
         tools:layout="@layout/game_details_fragment">
         <argument
             android:name="game"

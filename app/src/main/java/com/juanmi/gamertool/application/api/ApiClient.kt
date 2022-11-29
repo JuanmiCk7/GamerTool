@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.application.api_utils
+package com.juanmi.gamertool.application.api
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

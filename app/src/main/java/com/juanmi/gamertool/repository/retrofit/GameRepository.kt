@@ -1,6 +1,6 @@
 package com.juanmi.gamertool.repository.retrofit
 
-import com.juanmi.gamertool.application.api_utils.ResultData
+import com.juanmi.gamertool.application.api.ResultData
 import com.juanmi.gamertool.repository.model.Game
 
 /**

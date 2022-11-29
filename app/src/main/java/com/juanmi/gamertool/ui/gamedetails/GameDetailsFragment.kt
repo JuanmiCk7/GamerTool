@@ -18,7 +18,7 @@ import com.juanmi.gamertool.databinding.GameDetailsFragmentBinding
 import com.juanmi.gamertool.repository.model.Game
 import com.juanmi.gamertool.repository.model.getGenres
 import com.juanmi.gamertool.repository.model.getReleaseDate
-import com.juanmi.gamertool.ui.gamedetails.adapters.ScreenshotsAdapter
+import com.juanmi.gamertool.utils.adapters.ScreenshotsAdapter
 import com.juanmi.gamertool.utils.formatCoverImageUrl
 import com.juanmi.gamertool.utils.formatScreenshotBackgroundImageUrl
 import com.squareup.picasso.Picasso
@@ -98,7 +98,6 @@ class GameDetailsFragment : Fragment() {
             }
 
             binding.genresTextView.text = this.getGenres()
-
             binding.summary.text = this.summary
             binding.storyline.text = this.storyline
 
