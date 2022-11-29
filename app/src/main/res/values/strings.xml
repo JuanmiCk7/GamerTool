@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">GamerTool</string>
+    <string name="load_adapter_text">Error getting new games…</string>
     <string name="main_fragment_title">GamerTool</string>
     <string name="logo_description">Logo</string>
     <string name="add_button">Add</string>
     <string name="delete_button_content_description">Delete button</string>
     <string name="delete_button">Delete</string>
     <string name="finished_button">Finished</string>
+    <string name="unfinished_button">Unfinished</string>
+    <string name="cancel">Cancel</string>
+    <string name="alert_dialog_title">Delete game</string>
+    <string name="alert_dialog_text">Are you sure you want to delete this game?</string>
     <string name="insertTextView">Search a game by name</string>
     <string name="game_hint">Example, God of War</string>
     <string name="search_button">Search</string>
@@ -32,4 +37,13 @@
     <string name="username_text">Username</string>
     <string name="logout_text">Logout</string>
     <string name="your_account_text">Your account</string>
+    <string name="toast_save_game">Game saved into wish list!</string>
+    <string name="toast_save_game_failed">Failed saving the game into wish list!</string>
+    <string name="toast_success_set_completed">Game state changed successfully!</string>
+    <string name="toast_failed_set_completed">Failed changing the state of the game!</string>
+    <string name="toast_game_deleted">Game deleted successfully!</string>
+    <string name="toast_game_deleted_fail">Game failed on delete!</string>
+    <string name="retry_text">Retry</string>
+    <string name="no_games_text">No games found by this name!</string>
+    <string name="no_games_list_text">There are no games in your list!</string>
 </resources>

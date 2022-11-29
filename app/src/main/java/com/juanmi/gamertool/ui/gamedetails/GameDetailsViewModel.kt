@@ -28,8 +28,8 @@ class GameDetailsViewModel @Inject constructor(firestoreRepository: FirestoreRep
         repository.saveGame(game, context, authRepository.currentUser!!)
     }
 
-    fun setCompleted(game: Game, context: Context) {
-        repository.setCompleted(game, context, authRepository.currentUser!!)
+    fun setState(game: Game, state: Boolean, context: Context) {
+        repository.setState(game, state, context, authRepository.currentUser!!)
     }
 
     fun deleteGame(game: Game, context: Context, view: View) {

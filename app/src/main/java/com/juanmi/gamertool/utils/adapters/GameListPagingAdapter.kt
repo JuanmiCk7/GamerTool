@@ -39,10 +39,7 @@ class GameListPagingAdapter(
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
         getItem(position)?.let {
-            holder.bind(
-                it,
-                errorImage
-            )
+            holder.bind(it, errorImage)
         }
     }
 
@@ -57,10 +54,8 @@ class GameListPagingAdapter(
     ) : RecyclerView.ViewHolder(itemBinding.root) {
 
         @RequiresApi(Build.VERSION_CODES.O)
-        fun bind(
-            game: Game,
-            errorImage: Drawable
-        ) {
+        fun bind(game: Game, errorImage: Drawable) {
+
             itemBinding.ratingBar.apply {
                 val stars = itemBinding.ratingBar.progressDrawable as LayerDrawable
                 stars.setStarsProgressColor(

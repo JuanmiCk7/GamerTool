@@ -1,6 +1,7 @@
 package com.juanmi.gamertool.ui.gamedetails
 
 
+import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -103,14 +104,14 @@ class GameDetailsFragment : Fragment() {
 
             binding.buttonToWishOrComplete.setOnClickListener {
                 if(args.comeFromMyGames) {
-                    viewModel.setCompleted(game, requireContext())
+                    viewModel.setState(game, !game.complete, requireContext())
                 } else {
                     viewModel.saveGame(game, requireContext())
                 }
             }
 
             binding.deleteButton.setOnClickListener {
-                viewModel.deleteGame(game, requireContext(), requireView())
+                dialogDeleteGame()
             }
         }
     }
@@ -123,10 +124,27 @@ class GameDetailsFragment : Fragment() {
 
     private fun comeFromMyGames() {
         if(args.comeFromMyGames) {
-            binding.buttonToWishOrComplete.text = resources.getText(R.string.finished_button)
+            if (!game.complete) {
+                binding.buttonToWishOrComplete.text = resources.getText(R.string.finished_button)
+            } else {
+                binding.buttonToWishOrComplete.text = resources.getText(R.string.unfinished_button)
+            }
         } else {
             binding.buttonToWishOrComplete.text = resources.getText(R.string.add_button)
         }
+    }
+
+    private fun dialogDeleteGame() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(R.string.alert_dialog_title)
+        builder.setMessage(R.string.alert_dialog_text)
+
+        builder.setPositiveButton(R.string.delete_button) { _, _ ->
+            viewModel.deleteGame(game, requireContext(), requireView())
+        }
+        builder.setNegativeButton(R.string.cancel) { _, _ ->}
+        builder.create()
+        builder.show()
     }
 
     override fun onDestroyView() {

@@ -35,12 +35,13 @@
         app:shapeAppearanceOverlay="@style/round_image_view"
         tools:src="@drawable/gamertool_screenshot" />
 
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonToWishOrComplete"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/btn_custom"
         android:contentDescription="@string/add_button"
         android:scaleType="centerCrop"
@@ -48,22 +49,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:tint="@color/blue"
-        tools:ignore="TextContrastCheck" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/btn_custom_red"
-        android:contentDescription="@string/delete_button"
-        android:scaleType="centerCrop"
-        android:text="@string/delete_button"
-        app:backgroundTint="@color/red"
-        app:layout_constraintEnd_toStartOf="@+id/buttonToWishOrComplete"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:tint="@color/red"
         tools:ignore="TextContrastCheck" />
 
     <TextView
@@ -184,6 +169,19 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:contentDescription="@string/delete_button_content_description"
+        android:minHeight="48dp"
+        android:src="@drawable/delete_button_50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
