@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/game_item_layout_height"
-    android:layout_marginTop="@dimen/game_item_margin_top"
+    android:layout_height="110dp"
+    android:layout_marginTop="2dp"
     android:background="@drawable/round_outline"
     android:clipToOutline="true"
-    android:padding="@dimen/game_item_padding"
+    android:padding="4dp"
     tools:context=".ui.main.MainFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/gameCover"
         android:adjustViewBounds="true"
-        android:layout_width="@dimen/game_item_cover_size_width"
-        android:layout_height="@dimen/game_item_cover_size"
+        android:layout_width="81dp"
+        android:layout_height="105dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/round_outline_iv"
-        android:padding="@dimen/game_item_cover_padding"
+        android:padding="4dp"
         android:progressTint="@color/blue"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,11 +38,11 @@
         android:fontFamily="@font/roboto_regular"
         android:maxLines="2"
         android:textColor="@color/white"
-        android:textSize="@dimen/game_item_title_size"
+        android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/gameCover"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Super Mario Oddyssey ABC DEF GHI JKL MNO PQR STU" />
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
 
     <TextView
         android:id="@+id/date"
@@ -53,7 +53,7 @@
         android:fontFamily="@font/roboto_regular"
         android:maxLines="1"
         android:textColor="@color/medium_gray"
-        android:textSize="@dimen/game_item_date_size"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/gameCover"
         app:layout_constraintTop_toBottomOf="@+id/title"

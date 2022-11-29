@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/sreenshot_item_margin">
-
-
+    android:layout_margin="5dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/screenshotImage"
         android:adjustViewBounds="true"
-        android:layout_width="@dimen/screenshot_item_width"
-        android:layout_height="@dimen/screenshot_item_height"
-        android:elevation="@dimen/screenshot_item_elevation"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:elevation="2dp"
         android:background="@drawable/round_outline_iv"
-        android:padding="@dimen/game_item_cover_padding"
+        android:padding="4dp"
         android:progressTint="@color/blue"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"

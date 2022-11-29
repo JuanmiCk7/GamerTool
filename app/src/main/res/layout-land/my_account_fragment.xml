@@ -58,7 +58,6 @@
         android:layout_marginEnd="44dp"
         android:background="@drawable/btn_custom_red"
         android:contentDescription="@string/delete_button"
-        android:padding="@dimen/game_detail_link_padding"
         android:scaleType="centerCrop"
         android:text="@string/logout_text"
         app:backgroundTint="@color/red"
