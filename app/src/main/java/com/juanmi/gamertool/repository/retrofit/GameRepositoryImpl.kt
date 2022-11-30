@@ -22,11 +22,7 @@ class GameRepositoryImpl @Inject constructor(
      * params{currentPage: Página actual en la que está buscando}
      */
     override suspend fun getGames(currentPage: Int): ResultData<ArrayList<Game>?> {
-        return withContext(dispatcher) {
-            return@withContext safeCall {
-                service.getGames(getGamesQuery(currentPage))
-            }
-        }
+        return safeCall(dispatcher) { service.getGames(getGamesQuery(currentPage)) }
     }
 
     /**
@@ -35,18 +31,14 @@ class GameRepositoryImpl @Inject constructor(
      * params{name: Nombre del juego que se está buscando}
      */
     override suspend fun getGamesByName(name: String): ResultData<ArrayList<Game>?> {
-        return withContext(dispatcher) {
-            return@withContext safeCall {
-                service.getGamesByName(name ,getGamesByNameQuery())
-            }
-        }
+        return safeCall(dispatcher) { service.getGamesByName(name , getGamesByNameQuery()) }
     }
 
     companion object {
 
 
         const val GAME_PAGE_SIZE = 50
-        private const val GAME_PAGE_SIZE_TO_QUERY_BY_NAME = 30
+        private const val GAME_PAGE_SIZE_TO_QUERY_BY_NAME = 10
 
         /**
          * Calcula el offset para la query
@@ -61,7 +53,7 @@ class GameRepositoryImpl @Inject constructor(
         fun getGamesByNameQuery() : String {
             return "id, name, first_release_date,summary, storyline, cover.url, platforms.name," +
                     "platforms.platform_logo.url, category, genres.name,rating, rating_count, total_rating," +
-                    "total_rating_count,url,screenshots.url; limit $GAME_PAGE_SIZE; where category = (0, 1, 8, 9)"
+                    "total_rating_count,url,screenshots.url; limit $GAME_PAGE_SIZE_TO_QUERY_BY_NAME; where category = (0, 1, 8, 9)"
         }
 
         /**

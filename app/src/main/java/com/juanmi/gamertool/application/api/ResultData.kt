@@ -11,13 +11,6 @@ sealed class ResultData<out T> {
     data class Error(val failure: Exception, val code: Int = DEFAULT_ERROR_CODE) :
         ResultData<Nothing>()
 
-    override fun toString(): String {
-        return when (this) {
-            is Success<*> -> "Success[code=$code, data=$data]"
-            is Error -> "Error[code=$code, failure=$failure]"
-        }
-    }
-
     fun isNetworkError(): Boolean {
         return this is Error && (failure is IOException || failure is TimeoutException)
     }
