@@ -12,7 +12,7 @@ import javax.inject.Inject
  */
 class AuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth
-) : AuthRepository {
+    ) : AuthRepository {
 
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser

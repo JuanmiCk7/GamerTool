@@ -1,6 +1,7 @@
 package com.juanmi.gamertool.dependencies
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.juanmi.gamertool.application.api.ApiClient
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.auth.AuthRepositoryImpl
@@ -29,6 +30,10 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun providesFirebaseFirestore() : FirebaseFirestore = FirebaseFirestore.getInstance()
+
+    @Provides
+    @Singleton
     fun providesFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
 
     @Provides
@@ -37,7 +42,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFirestoreRepository(): FirestoreRepository = FirestoreRepositoryImpl()
+    fun provideFirestoreRepository(firebaseFirestore: FirebaseFirestore): FirestoreRepository = FirestoreRepositoryImpl(firebaseFirestore)
 
     @Provides
     @Singleton
