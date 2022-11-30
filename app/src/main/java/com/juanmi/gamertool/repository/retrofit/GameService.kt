@@ -1,6 +1,6 @@
 package com.juanmi.gamertool.repository.retrofit
 
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 import retrofit2.Response
 import retrofit2.http.POST
 import retrofit2.http.Query

@@ -4,7 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 
 class MyGamesPagingSource(private val repository: FirestoreRepository, private val authRepository: AuthRepository)
     : PagingSource<Int, Game>() {

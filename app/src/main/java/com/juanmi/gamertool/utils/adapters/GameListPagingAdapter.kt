@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.RecyclerViewGameBinding
-import com.juanmi.gamertool.repository.model.Game
-import com.juanmi.gamertool.repository.model.getGenres
-import com.juanmi.gamertool.repository.model.getReleaseDate
+import com.juanmi.gamertool.model.Game
+import com.juanmi.gamertool.model.getGenres
+import com.juanmi.gamertool.model.getReleaseDate
 import com.juanmi.gamertool.utils.formatCoverImageUrl
 import com.juanmi.gamertool.utils.setStarsProgressColor
 import com.squareup.picasso.Picasso

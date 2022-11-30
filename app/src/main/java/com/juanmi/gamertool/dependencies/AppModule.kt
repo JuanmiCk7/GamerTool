@@ -21,11 +21,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
     @Provides
     @Singleton
-    fun provideGameRepository(
-        service: GameService
-    ): GameRepository =
+    fun provideGameRepository(service: GameService): GameRepository =
         GameRepositoryImpl(service)
 
     @Provides

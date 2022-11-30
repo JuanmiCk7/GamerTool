@@ -1,13 +1,13 @@
-package com.juanmi.gamertool.repository.model
+package com.juanmi.gamertool.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 /***
- * Clase que define el captura de un juego.
+ * Clase que define la caratula de un juego.
  */
 @Parcelize
-class GameScreenshot(
+class GameCover(
     val id: Int = 0,
     val url: String = "",
 ) : Parcelable

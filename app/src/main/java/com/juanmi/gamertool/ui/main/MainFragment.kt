@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.MainFragmentBinding
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.utils.adapters.LoadStateAdapter
 import com.juanmi.gamertool.utils.adapters.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint

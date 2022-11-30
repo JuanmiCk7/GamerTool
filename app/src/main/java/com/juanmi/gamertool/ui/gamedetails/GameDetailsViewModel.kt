@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

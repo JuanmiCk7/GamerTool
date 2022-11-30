@@ -5,7 +5,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.juanmi.gamertool.R
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 import kotlinx.coroutines.tasks.await
 
 /***
@@ -43,7 +43,7 @@ class FirestoreRepositoryImpl : FirestoreRepository {
             }
     }
 
-    override fun setState(game: Game,state: Boolean, context: Context, currentUser: FirebaseUser) {
+    override fun setState(game: Game, state: Boolean, context: Context, currentUser: FirebaseUser) {
         db.collection(currentUser.email!!).document(game.id.toString()).update("complete", state)
             .addOnSuccessListener {
                 Toast.makeText(context, R.string.toast_success_set_completed, Toast.LENGTH_SHORT).show()

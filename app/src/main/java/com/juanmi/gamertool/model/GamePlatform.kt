@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.repository.model
+package com.juanmi.gamertool.model
 
 import android.os.Parcelable
 

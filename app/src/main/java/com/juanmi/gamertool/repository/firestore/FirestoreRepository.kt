@@ -2,7 +2,7 @@ package com.juanmi.gamertool.repository.firestore
 
 import android.content.Context
 import com.google.firebase.auth.FirebaseUser
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 
 /***
  * Interfaz que define los métodos utilizados para la gestión de juegos en Firestore.

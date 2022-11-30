@@ -3,7 +3,7 @@ package com.juanmi.gamertool.utils.adapters
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.juanmi.gamertool.application.api.ResultData
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
 import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
 import retrofit2.HttpException

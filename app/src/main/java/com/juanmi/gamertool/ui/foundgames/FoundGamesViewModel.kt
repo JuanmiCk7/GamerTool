@@ -9,7 +9,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
 import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
 import com.juanmi.gamertool.utils.adapters.GameSearchPagingSource

@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import androidx.paging.*
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
 import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
 import com.juanmi.gamertool.utils.adapters.GamesPagingSource

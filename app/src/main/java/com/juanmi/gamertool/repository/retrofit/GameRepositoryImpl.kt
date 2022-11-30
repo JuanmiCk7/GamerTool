@@ -2,7 +2,7 @@ package com.juanmi.gamertool.repository.retrofit
 
 import com.juanmi.gamertool.application.api.ResultData
 import com.juanmi.gamertool.application.safeCall
-import com.juanmi.gamertool.repository.model.Game
+import com.juanmi.gamertool.model.Game
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

@@ -16,9 +16,9 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.GameDetailsFragmentBinding
-import com.juanmi.gamertool.repository.model.Game
-import com.juanmi.gamertool.repository.model.getGenres
-import com.juanmi.gamertool.repository.model.getReleaseDate
+import com.juanmi.gamertool.model.Game
+import com.juanmi.gamertool.model.getGenres
+import com.juanmi.gamertool.model.getReleaseDate
 import com.juanmi.gamertool.utils.adapters.ScreenshotsAdapter
 import com.juanmi.gamertool.utils.formatCoverImageUrl
 import com.juanmi.gamertool.utils.formatScreenshotBackgroundImageUrl

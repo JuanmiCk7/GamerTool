@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.GameScreenshotBinding
-import com.juanmi.gamertool.repository.model.GameScreenshot
+import com.juanmi.gamertool.model.GameScreenshot
 import com.juanmi.gamertool.utils.formatScreenshotImageUrl
 import com.squareup.picasso.Picasso
 

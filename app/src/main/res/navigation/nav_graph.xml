@@ -20,7 +20,7 @@
             app:popExitAnim="@android:anim/fade_out">
             <argument
                 android:name="game"
-                app:argType="com.juanmi.gamertool.repository.model.Game" />
+                app:argType="com.juanmi.gamertool.model.Game" />
         </action>
 
     </fragment>
@@ -31,7 +31,7 @@
         tools:layout="@layout/game_details_fragment">
         <argument
             android:name="game"
-            app:argType="com.juanmi.gamertool.repository.model.Game" />
+            app:argType="com.juanmi.gamertool.model.Game" />
         <argument
             android:name="comeFromMyGames"
             app:argType="boolean" />
