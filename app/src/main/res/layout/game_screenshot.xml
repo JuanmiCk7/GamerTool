@@ -7,20 +7,20 @@
     android:layout_margin="5dp">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/screenshotImage"
-        android:adjustViewBounds="true"
-        android:layout_width="180dp"
-        android:layout_height="120dp"
-        android:elevation="2dp"
-        android:background="@drawable/round_outline_iv"
-        android:padding="4dp"
-        android:progressTint="@color/blue"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/round_image_view"
-        tools:src="@drawable/gamertool_cover" />
+            android:id="@+id/screenshotImage"
+            android:adjustViewBounds="true"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:elevation="2dp"
+            android:background="@drawable/round_outline_iv"
+            android:padding="4dp"
+            android:progressTint="@color/blue"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/round_image_view"
+            tools:src="@drawable/gamertool_cover" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

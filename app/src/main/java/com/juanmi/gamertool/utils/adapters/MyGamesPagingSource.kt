@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
 import com.juanmi.gamertool.model.Game
+import retrofit2.HttpException
 
 class MyGamesPagingSource(private val repository: FirestoreRepository, private val authRepository: AuthRepository)
     : PagingSource<Int, Game>() {
@@ -19,6 +20,8 @@ class MyGamesPagingSource(private val repository: FirestoreRepository, private v
             )
         } catch (e: Exception) {
             LoadResult.Error(e)
+        } catch (exception: HttpException) {
+            LoadResult.Error(exception)
         }
     }
 

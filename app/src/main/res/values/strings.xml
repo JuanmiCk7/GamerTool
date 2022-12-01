@@ -46,4 +46,16 @@
     <string name="retry_text">Retry</string>
     <string name="no_games_text">No games found by this name!</string>
     <string name="no_games_list_text">There are no games in your list!</string>
+    <string name="summary">Summary</string>
+    <string name="storyline">Storyline</string>
+    <string name="screenshots">Screenshots</string>
+    <string name="genres">Genres</string>
+    <string name="follows">Follows</string>
+    <string name="rating">Rating</string>
+    <string name="about_the_game">About the game</string>
+    <string name="name">Name</string>
+    <string name="developers">Developers</string>
+    <string name="developers_placeholder">Sony Computer Entertaiment, Nintendo, Sega, IBM, Nasa, Sheldon Cooper, Cristiano Ronaldo and Messi</string>
+    <string name="the_magnificent_game">The magnificent Game</string>
+    <string name="follows_placeholder">11111</string>
 </resources>

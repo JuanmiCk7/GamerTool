@@ -1,10 +1,12 @@
 package com.juanmi.gamertool.ui.foundgames
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -20,6 +22,7 @@ import com.juanmi.gamertool.utils.adapters.LoadStateAdapter
 import com.juanmi.gamertool.utils.adapters.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FoundGamesFragment : Fragment() {
@@ -72,7 +75,7 @@ class FoundGamesFragment : Fragment() {
 
         noGamesTextViewVisibility()
 
-        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+        viewLifecycleOwner.lifecycleScope.launch {
             viewModel.gameList.collectLatest { pagingData ->
                 gamesAdapter.submitData(pagingData)
             }

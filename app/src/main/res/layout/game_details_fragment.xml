@@ -12,7 +12,6 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,15 +23,16 @@
 
             <ImageView
                     android:id="@+id/headerBackground"
-                    android:layout_width="411dp"
+                    android:layout_width="0dp"
                     android:layout_height="114dp"
-                    android:alpha="0.4"
+                    android:alpha="0.8"
                     android:contentDescription="@string/header_of_game_details_fragment"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     tools:src="@drawable/gamertool_cover"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="ImageContrastCheck" />
 
             <View
                     android:id="@+id/blueHorizontalSeparator3"
@@ -119,7 +119,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.088"
                     app:layout_constraintTop_toBottomOf="@+id/date"
-                    android:layout_marginTop="28dp" />
+                    android:layout_marginTop="28dp"
+                    tools:ignore="RedundantDescriptionCheck" />
 
             <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
@@ -135,7 +136,7 @@
                     app:cardCornerRadius="20dp">
 
                 <TextView
-                        android:text="Summary"
+                        android:text="@string/summary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/summaryTextView"
@@ -143,7 +144,7 @@
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
                         android:textAlignment="center"
-                        android:layout_marginLeft="15dp" />
+                        android:layout_marginStart="15dp" />
 
                 <TextView
                         android:id="@+id/summary"
@@ -174,7 +175,7 @@
                     app:cardCornerRadius="20dp">
 
                 <TextView
-                        android:text="Storyline"
+                        android:text="@string/storyline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/storylineTextView"
@@ -182,7 +183,7 @@
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
                         android:textAlignment="center"
-                        android:layout_marginLeft="15dp" />
+                        android:layout_marginStart="15dp" />
 
                 <TextView
                         android:id="@+id/storyline"
@@ -222,11 +223,11 @@
                         app:layout_constraintTop_toBottomOf="@+id/buttonToWishOrComplete"
                         android:layout_marginTop="45dp"
                         tools:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp" />
 
                 <TextView
-                        android:text="Screenshots"
+                        android:text="@string/screenshots"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/screenshotsTextView"
@@ -234,7 +235,7 @@
                         android:textSize="18sp"
                         android:layout_marginTop="15dp"
                         android:textAlignment="center"
-                        android:layout_marginLeft="15dp" />
+                        android:layout_marginStart="15dp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -248,14 +249,16 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="30dp"
                     app:cardBackgroundColor="@color/card_gray"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                     <TextView
-                            android:text="Genres"
+                            android:text="@string/genres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutGenresTitleTextView"
@@ -268,7 +271,6 @@
                             android:layout_marginTop="16dp" />
 
                     <TextView
-                            android:text="12345"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutFollowsTextView"
@@ -280,10 +282,11 @@
                             app:layout_constraintTop_toBottomOf="@+id/aboutFollowsTitleTextView"
                             android:layout_marginTop="12dp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginBottom="20dp" />
+                            android:layout_marginBottom="20dp"
+                            android:text="@string/follows_placeholder" />
 
                     <TextView
-                            android:text="Follows"
+                            android:text="@string/follows"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutFollowsTitleTextView"
@@ -296,7 +299,7 @@
                             android:layout_marginTop="16dp" />
 
                     <TextView
-                            android:text="Rating"
+                            android:text="@string/rating"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutRatingTitleTextView"
@@ -309,7 +312,7 @@
                             android:layout_marginTop="16dp" />
 
                     <TextView
-                            android:text="About the game"
+                            android:text="@string/about_the_game"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutTextView"
@@ -322,7 +325,7 @@
                             android:layout_marginStart="16dp" />
 
                     <TextView
-                            android:text="Name"
+                            android:text="@string/name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutNameTitleTextView"
@@ -335,7 +338,7 @@
                             android:layout_marginTop="16dp" />
 
                     <TextView
-                            android:text="Developers"
+                            android:text="@string/developers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutDevelopersTitleTextView"
@@ -348,7 +351,7 @@
                             android:layout_marginTop="16dp" />
 
                     <TextView
-                            android:text="Sony Computer Entertaiment, Nintendo, Sega, Juanmi, cdsacascas, cdascascdasc, cadscac"
+                            android:text="@string/developers_placeholder"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutDevelopersTextView"
@@ -364,7 +367,7 @@
                             android:layout_marginEnd="16dp" />
 
                     <TextView
-                            android:text="The magnificent Game"
+                            android:text="@string/the_magnificent_game"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/aboutNameTextView"

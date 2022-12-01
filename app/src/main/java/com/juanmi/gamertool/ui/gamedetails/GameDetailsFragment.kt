@@ -104,16 +104,16 @@ class GameDetailsFragment : Fragment() {
             binding.summary.text = this.summary
 
             if(this.storyline.isNullOrEmpty()) {
-                binding.storylineCardView!!.visibility = View.GONE
+                binding.storylineCardView.visibility = View.GONE
             } else {
                 binding.storyline.text = this.storyline
             }
 
 
-            binding.aboutNameTextView?.text = this.name
-            binding.aboutDevelopersTextView?.text = this.getDevelopers()
-            binding.ratingBar2?.rating = (this.rating!!.div(20)).toFloat()
-            binding.aboutFollowsTextView?.text = this.follows.toString()
+            binding.aboutNameTextView.text = this.name
+            binding.aboutDevelopersTextView.text = this.getDevelopers()
+            binding.ratingBar2.rating = (this.rating!!.div(20)).toFloat()
+            binding.aboutFollowsTextView.text = this.follows.toString()
 
             binding.buttonToWishOrComplete.setOnClickListener {
                 if(args.comeFromMyGames) {

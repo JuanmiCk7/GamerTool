@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import com.juanmi.gamertool.application.api.ResultData
 import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
+import retrofit2.HttpException
 
 class GameSearchPagingSource(private val repository: GameRepository, private val gameName: String) :
     PagingSource<Int, Game>() {
@@ -23,6 +24,8 @@ class GameSearchPagingSource(private val repository: GameRepository, private val
             )
         } catch (e: Exception) {
             LoadResult.Error(e)
+        } catch (exception: HttpException) {
+            LoadResult.Error(exception)
         }
     }
 
