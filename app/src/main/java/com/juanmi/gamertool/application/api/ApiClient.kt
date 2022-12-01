@@ -6,6 +6,7 @@ import com.juanmi.gamertool.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -34,6 +35,8 @@ class ApiClient(
 
     private fun configureServices() {
         val builder = OkHttpClient.Builder()
+        val loggin = HttpLoggingInterceptor()
+        loggin.level = HttpLoggingInterceptor.Level.BODY
 
         val headers = Interceptor { chain ->
             val request: Request = chain.request().newBuilder()
@@ -46,6 +49,7 @@ class ApiClient(
         val client = builder
             .readTimeout(50, TimeUnit.SECONDS)
             .connectTimeout(50, TimeUnit.SECONDS)
+            .addInterceptor(loggin)
             .addInterceptor(headers)
             .build()
 

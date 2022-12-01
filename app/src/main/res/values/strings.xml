@@ -3,7 +3,7 @@
     <string name="load_adapter_text">Error getting new games…</string>
     <string name="main_fragment_title">GamerTool</string>
     <string name="logo_description">Logo</string>
-    <string name="add_button">Add</string>
+    <string name="add_button">Add to my wishlist</string>
     <string name="delete_button_content_description">Delete button</string>
     <string name="delete_button">Delete</string>
     <string name="finished_button">Finished</string>

@@ -4,6 +4,7 @@ package com.juanmi.gamertool.ui.gamedetails
 import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.GameDetailsFragmentBinding
 import com.juanmi.gamertool.model.Game
+import com.juanmi.gamertool.model.getDevelopers
 import com.juanmi.gamertool.model.getGenres
 import com.juanmi.gamertool.model.getReleaseDate
 import com.juanmi.gamertool.utils.adapters.ScreenshotsAdapter
@@ -100,7 +102,18 @@ class GameDetailsFragment : Fragment() {
 
             binding.genresTextView.text = this.getGenres()
             binding.summary.text = this.summary
-            binding.storyline.text = this.storyline
+
+            if(this.storyline.isNullOrEmpty()) {
+                binding.storylineCardView!!.visibility = View.GONE
+            } else {
+                binding.storyline.text = this.storyline
+            }
+
+
+            binding.aboutNameTextView?.text = this.name
+            binding.aboutDevelopersTextView?.text = this.getDevelopers()
+            binding.ratingBar2?.rating = (this.rating!!.div(20)).toFloat()
+            binding.aboutFollowsTextView?.text = this.follows.toString()
 
             binding.buttonToWishOrComplete.setOnClickListener {
                 if(args.comeFromMyGames) {

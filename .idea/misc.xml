@@ -43,7 +43,7 @@
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/content_main.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/found_games_fragment.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_details_fragement.xml" value="0.55" />
-        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_details_fragment.xml" value="0.39631336405529954" />
+        <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_details_fragment.xml" value="0.33" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_item.xml" value="0.55" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/game_screenshot.xml" value="0.34322916666666664" />
         <entry key="..\:/Users/Juanmi/Desktop/Anteproyecto/GamerTool/app/src/main/res/layout/load_state_item.xml" value="0.34010416666666665" />
@@ -72,5 +72,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

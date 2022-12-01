@@ -3,11 +3,8 @@ package com.juanmi.gamertool.model
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-/***
- * Clase que define el logotipo de la plataforma de un juego.
- */
 @Parcelize
-class GamePlatformLogo(
+class GameCompany (
     val id: Int = 0,
-    val url: String = "",
+    val name: String = ""
 ) : Parcelable

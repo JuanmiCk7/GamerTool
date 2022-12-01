@@ -7,7 +7,6 @@
     android:layout_height="110dp"
     android:layout_marginTop="2dp"
     android:background="@drawable/round_outline"
-    android:clipToOutline="true"
     android:padding="4dp"
     tools:context=".ui.main.MainFragment">
 
@@ -84,19 +83,19 @@
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
-        android:id="@+id/genres"
-        android:layout_width="219dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="12dp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="Some example text for genres text view"
-        android:textColor="@color/medium_gray"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/gameCover"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-        app:layout_constraintVertical_bias="0.333" />
+            android:id="@+id/genres"
+            android:layout_width="219dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Some example text for genres text view"
+            android:textColor="@color/medium_gray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/gameCover"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            app:layout_constraintVertical_bias="0.333" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

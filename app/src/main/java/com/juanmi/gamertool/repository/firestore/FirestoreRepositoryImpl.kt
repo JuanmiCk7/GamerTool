@@ -27,6 +27,8 @@ class FirestoreRepositoryImpl @Inject constructor(
             "summary" to game.summary,
             "url" to game.url,
             "releaseDate" to game.releaseDate,
+            "follows" to game.follows,
+            "involvedCompanies" to game.involvedCompanies,
             "rating" to game.rating,
             "totalRating" to game.rating,
             "ratingCount" to game.ratingCount,

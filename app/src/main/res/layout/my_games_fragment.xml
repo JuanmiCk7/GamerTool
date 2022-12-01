@@ -8,15 +8,16 @@
     tools:context=".ui.mygames.MyGamesFragment">
 
     <TextView
-        android:id="@+id/no_games_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_games_list_text"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/swipeContainer" />
+            android:id="@+id/no_games_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_games_list_text"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/swipeContainer"
+            android:textColor="@color/white" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -29,21 +30,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeContainer"
-        android:layout_width="380dp"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            android:id="@+id/swipeContainer"
+            android:layout_width="380dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mygamesRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:nestedScrollingEnabled="true" />
+                android:id="@+id/mygamesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:nestedScrollingEnabled="true" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

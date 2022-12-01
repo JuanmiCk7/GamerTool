@@ -24,10 +24,25 @@ data class Game(
     @SerializedName("rating") val rating: Double? = 0.0,
     @SerializedName("total_rating") val totalRating: Double? = 0.0,
     val ratingCount: Int? = 0,
+    val follows : Int? = 0,
+    @SerializedName("involved_companies") val involvedCompanies : List<GameInvolvedCompanies>? = listOf(),
     val screenshots: List<GameScreenshot>? = listOf(),
     val complete: Boolean = false,
     val comesFromFirestore: Boolean = false
 ) : Parcelable
+
+fun Game.getDevelopers() : String {
+    var developersString = ""
+    if(!this.involvedCompanies.isNullOrEmpty())  {
+        developersString = this.involvedCompanies[0].gameCompany!!.name
+        if(this.involvedCompanies.size > 1) {
+            for(i in 1 until this.involvedCompanies.size) {
+                developersString += ", ${this.involvedCompanies[i].gameCompany!!.name}"
+            }
+        }
+    }
+    return developersString
+}
 
 /***
  * Método utilizado para obtener el género de un juego
