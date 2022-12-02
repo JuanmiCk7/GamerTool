@@ -66,6 +66,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.42"
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.0'
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     kapt "com.google.dagger:hilt-compiler:2.42"
 
     testImplementation 'junit:junit:4.13.2'

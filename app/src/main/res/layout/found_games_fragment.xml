@@ -15,22 +15,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-                android:id="@+id/searchEditText"
-                android:layout_width="360dp"
-                android:layout_height="50dp"
-                android:background="@drawable/et_custom"
-                android:fontFamily="@font/roboto_regular"
-                android:hint="@string/game_hint"
-                android:inputType="text"
-                android:padding="15dp"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.49"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="32dp" />
-
         <TextView
                 android:id="@+id/no_games_tv"
                 android:layout_width="wrap_content"
@@ -56,12 +40,12 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/swipeContainer"
                 android:layout_width="376dp"
-                android:layout_height="611dp"
+                android:layout_height="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchEditText"
                 app:layout_constraintHorizontal_bias="0.542"
-                android:layout_marginTop="20dp">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchView">
 
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/gameSearchRecyclerView"
@@ -72,6 +56,14 @@
                     android:nestedScrollingEnabled="true" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <SearchView
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/searchView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -64,6 +65,22 @@ class FoundGamesFragment : Fragment() {
             adapter = gamesAdapter
         }
 
+        binding.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if(query != null) {
+                    viewModel.setGameName(query)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                if(query != null) {
+                    viewModel.setGameName(query)
+                }
+                return true
+            }
+        })
+
         gamesAdapter.addLoadStateListener { loadState ->
             if((loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading) && gamesAdapter.itemCount == 0) {
                 binding.progressBar.visibility = View.VISIBLE
@@ -75,10 +92,8 @@ class FoundGamesFragment : Fragment() {
 
         noGamesTextViewVisibility()
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.gameList.collectLatest { pagingData ->
-                gamesAdapter.submitData(pagingData)
-            }
+        viewModel.gameList.observe(viewLifecycleOwner) {
+            gamesAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
     }
 

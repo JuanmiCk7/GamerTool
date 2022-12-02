@@ -10,6 +10,7 @@ import com.juanmi.gamertool.repository.firestore.FirestoreRepositoryImpl
 import com.juanmi.gamertool.repository.retrofit.GameRepository
 import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
 import com.juanmi.gamertool.repository.retrofit.GameService
+import com.juanmi.gamertool.repository.retrofit.PagingGameRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,6 +28,10 @@ object AppModule {
     @Singleton
     fun provideGameRepository(service: GameService): GameRepository =
         GameRepositoryImpl(service)
+
+    @Provides
+    @Singleton
+    fun providesPagingGameRepository(gameRepository: GameRepository) : PagingGameRepository = PagingGameRepository(gameRepository)
 
     @Provides
     @Singleton

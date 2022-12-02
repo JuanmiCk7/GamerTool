@@ -51,7 +51,7 @@ class GameRepositoryImpl @Inject constructor(
          * Devuelve la query con los campos que se van a buscar
          */
         fun getGamesByNameQuery() : String {
-            return "id, name, first_release_date,summary, storyline, cover.url, platforms.name," +
+            return "id, name, first_release_date,summary, storyline, cover.url, involved_companies.company.name, platforms.name, follows," +
                     "category, genres.name,rating, rating_count, total_rating," +
                     "total_rating_count, url, screenshots.url; limit $GAME_PAGE_SIZE_TO_QUERY_BY_NAME; where category = (0, 1, 8, 9)"
         }

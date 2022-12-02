@@ -21,6 +21,7 @@ import com.juanmi.gamertool.utils.adapters.LoadStateAdapter
 import com.juanmi.gamertool.utils.adapters.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -65,10 +66,8 @@ class MainFragment : Fragment() {
             }
         }
 
-        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
-            viewModel.gameList.collectLatest { pagingData ->
-                gamesAdapter.submitData(pagingData)
-            }
+        viewModel.gameList.observe(viewLifecycleOwner) {
+            gamesAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
 
         binding.gameListRecyclerView.apply {
