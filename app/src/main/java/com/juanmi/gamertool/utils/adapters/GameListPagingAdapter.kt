@@ -84,7 +84,9 @@ class GameListPagingAdapter(
                 itemBinding.genres.text = game.getGenres()
             }
 
-            if(!game.complete) {
+            if(game.complete) {
+                itemBinding.completeGameImageView.visibility = View.VISIBLE
+            } else {
                 itemBinding.completeGameImageView.visibility = View.INVISIBLE
             }
 

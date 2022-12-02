@@ -30,8 +30,8 @@ class GameRepositoryImpl @Inject constructor(
      *
      * params{name: Nombre del juego que se está buscando}
      */
-    override suspend fun getGamesByName(name: String): ResultData<ArrayList<Game>?> {
-        return safeCall(dispatcher) { service.getGamesByName(name , getGamesByNameQuery()) }
+    override suspend fun getGamesByName(name: String, currentPage: Int): ResultData<ArrayList<Game>?> {
+        return safeCall(dispatcher) { service.getGamesByName(name , getGamesByNameQuery(currentPage)) }
     }
 
     companion object {
@@ -50,10 +50,11 @@ class GameRepositoryImpl @Inject constructor(
         /**
          * Devuelve la query con los campos que se van a buscar
          */
-        fun getGamesByNameQuery() : String {
+        fun getGamesByNameQuery(currentPage: Int) : String {
+            val offset = calculateOffset(currentPage)
             return "id, name, first_release_date,summary, storyline, cover.url, involved_companies.company.name, platforms.name, follows," +
                     "category, genres.name,rating, rating_count, total_rating," +
-                    "total_rating_count, url, screenshots.url; limit $GAME_PAGE_SIZE_TO_QUERY_BY_NAME; where category = (0, 1, 8, 9)"
+                    "total_rating_count, url, screenshots.url; limit $GAME_PAGE_SIZE_TO_QUERY_BY_NAME; offset $offset; where category = (0, 1, 8, 9)"
         }
 
         /**

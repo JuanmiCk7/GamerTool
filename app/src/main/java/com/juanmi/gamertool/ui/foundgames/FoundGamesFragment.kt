@@ -1,12 +1,16 @@
 package com.juanmi.gamertool.ui.foundgames
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import android.widget.SearchView
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -32,9 +36,9 @@ class FoundGamesFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var gamesAdapter: GameListPagingAdapter
 
-    private val viewModel: FoundGamesViewModel by viewModels()
+    private val defaultGameName = "Mario"
 
-    private val args: FoundGamesFragmentArgs by navArgs()
+    private val viewModel: FoundGamesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +46,7 @@ class FoundGamesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FoundGamesFragmentBinding.inflate(inflater, container, false)
-        viewModel.setGameName(args.gameName)
+        viewModel.setGameName(defaultGameName)
         setupView()
         return binding.root
     }
@@ -62,13 +66,21 @@ class FoundGamesFragment : Fragment() {
 
         binding.gameSearchRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            adapter = gamesAdapter
+            adapter = gamesAdapter.withLoadStateFooter(
+                footer = LoadStateAdapter { gamesAdapter.retry() }
+            )
         }
 
-        binding.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        val searchIcon : ImageView = binding.searchView!!.findViewById(androidx.appcompat.R.id.search_button)
+        val cleanIcon : ImageView = binding.searchView!!.findViewById(androidx.appcompat.R.id.search_close_btn)
+        searchIcon.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.search_view_icon))
+        cleanIcon.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.search_view_clean_icon))
+
+        binding.searchView?.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query != null) {
                     viewModel.setGameName(query)
+                    hideKeyboard()
                 }
                 return true
             }
@@ -90,19 +102,23 @@ class FoundGamesFragment : Fragment() {
             }
         }
 
-        noGamesTextViewVisibility()
-
         viewModel.gameList.observe(viewLifecycleOwner) {
             gamesAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+
         }
     }
 
     private fun noGamesTextViewVisibility() {
-        if(gamesAdapter.itemCount == 0) {
+        if(1 == 2) {
             binding.noGamesTv.visibility = View.VISIBLE
         } else {
             binding.noGamesTv.visibility = View.INVISIBLE
         }
+    }
+
+    private fun Fragment.hideKeyboard() {
+        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
     private fun onGameClicked(game: Game) {

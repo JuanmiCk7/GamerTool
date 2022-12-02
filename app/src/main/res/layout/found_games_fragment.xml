@@ -57,13 +57,14 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <SearchView
+        <androidx.appcompat.widget.SearchView
                 android:layout_width="0dp"
                 android:layout_height="70dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/searchView" />
+                android:id="@+id/searchView"
+                android:theme="@style/SearchView"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
         android:title="@string/all_item_menu"/>
 
     <item
-        android:id="@+id/browserFragment"
+        android:id="@+id/SearchFragment"
         android:icon="@drawable/search_button_24"
         android:title="@string/search_item_menu"/>
 

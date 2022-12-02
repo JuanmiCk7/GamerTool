@@ -7,11 +7,16 @@ import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
 import retrofit2.HttpException
 
+private const val STARTING_PAGE_INDEX = 1
+
 class GameSearchPagingSource(private val repository: GameRepository, private val gameName: String) :
     PagingSource<Int, Game>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Game> {
         return try {
-            val response = repository.getGamesByName(gameName)
+
+            var pageNumber = params.key ?: STARTING_PAGE_INDEX
+            val response = repository.getGamesByName(gameName, pageNumber)
+
             var resultData: ArrayList<Game>? = null
             if (response is ResultData.Success) {
                 resultData = response.data
@@ -19,8 +24,8 @@ class GameSearchPagingSource(private val repository: GameRepository, private val
 
             LoadResult.Page(
                 data = resultData!!.toList(),
-                prevKey = null,
-                nextKey = null
+                prevKey = if(pageNumber == STARTING_PAGE_INDEX) null else pageNumber - 1,
+                nextKey = if (resultData.isEmpty()) null else pageNumber + 1
             )
         } catch (e: Exception) {
             LoadResult.Error(e)

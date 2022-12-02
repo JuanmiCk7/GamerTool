@@ -2,6 +2,7 @@ package com.juanmi.gamertool.repository.firestore
 
 import android.content.Context
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.Query
 import com.juanmi.gamertool.model.Game
 
 /***
@@ -11,5 +12,5 @@ interface FirestoreRepository {
     fun saveGame(game: Game, context: Context, currentUser: FirebaseUser)
     fun setState(game: Game, state: Boolean, context: Context, currentUser: FirebaseUser)
     fun deleteGame(game: Game, context: Context, currentUser: FirebaseUser)
-    suspend fun getAllGames(currentUser: FirebaseUser): List<Game>
+    suspend fun getAllGames(currentUser: FirebaseUser): Query
 }

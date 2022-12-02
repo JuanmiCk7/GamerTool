@@ -71,7 +71,9 @@ class MyGamesFragment : Fragment() {
 
         binding.mygamesRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            adapter = gamesAdapter
+            adapter = gamesAdapter.withLoadStateFooter(
+                footer = LoadStateAdapter { gamesAdapter.retry() }
+            )
         }
     }
 

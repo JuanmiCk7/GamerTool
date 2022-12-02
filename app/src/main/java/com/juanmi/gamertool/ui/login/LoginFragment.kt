@@ -2,11 +2,13 @@ package com.juanmi.gamertool.ui.login
 
 import android.content.Context
 import android.os.Bundle
+import android.support.annotation.NonNull
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
@@ -23,13 +25,21 @@ class LoginFragment : Fragment() {
 
     private val viewModel: AuthViewModel by viewModels()
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true)
+            {
+                override fun handleOnBackPressed() {}
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         _binding = LoginFragmentBinding.inflate(inflater, container, false)
         binding.btnLogin.setOnClickListener {
             if(checkIfUserNotEmpty() && checkIfPasswordNotEmpty()) {

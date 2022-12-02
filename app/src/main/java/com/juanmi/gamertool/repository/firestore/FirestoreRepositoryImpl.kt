@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.model.Game
 import kotlinx.coroutines.tasks.await
@@ -15,6 +16,8 @@ import javax.inject.Inject
 class FirestoreRepositoryImpl @Inject constructor(
     private val firebaseFirestore: FirebaseFirestore
     ) : FirestoreRepository {
+
+    private val CURRENT_PAGE_SIZE = 50L
 
     override fun saveGame(game: Game, context: Context, currentUser: FirebaseUser) {
         val data = hashMapOf(
@@ -66,7 +69,7 @@ class FirestoreRepositoryImpl @Inject constructor(
             }
     }
 
-    override suspend fun getAllGames(currentUser: FirebaseUser): List<Game> {
-        return firebaseFirestore.collection(currentUser.email!!).get().await().toObjects(Game::class.java)
+    override suspend fun getAllGames(currentUser: FirebaseUser): Query {
+        return firebaseFirestore.collection(currentUser.email!!).limit(CURRENT_PAGE_SIZE)
     }
 }

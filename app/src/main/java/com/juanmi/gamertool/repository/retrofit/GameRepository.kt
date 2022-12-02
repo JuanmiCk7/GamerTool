@@ -8,5 +8,5 @@ import com.juanmi.gamertool.model.Game
  */
 interface GameRepository {
     suspend fun getGames(currentPage: Int): ResultData<ArrayList<Game>?>
-    suspend fun getGamesByName(name: String): ResultData<ArrayList<Game>?>
+    suspend fun getGamesByName(name: String, currentPage: Int): ResultData<ArrayList<Game>?>
 }
