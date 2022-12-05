@@ -62,7 +62,7 @@ This was made as a final project of my degree.
 
 You can download the APK from the releases page.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### New features
 
 See the [open issues](https://github.com/JuanmiCk7/GamerTool/issues) for a full list of proposed features (and known issues).
 
