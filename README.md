@@ -89,4 +89,4 @@ Project Link: [https://github.com/JuanmiCk7/GamerTool](https://github.com/Juanmi
 [license-url]: https://github.com/JuanmiCk7/GamerTool/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/JuanmiCk7
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: /blob/main/app/src/main/res/drawable/gamertool_cover.png
