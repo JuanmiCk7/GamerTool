@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/JuanmiCk7/GamerTool">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">GamerTool</h3>
