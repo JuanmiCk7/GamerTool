@@ -16,7 +16,7 @@
   <h2>App to search and save your favorites games!</h2>
   <p align="center">
     <br />
-    <a href="https://github.com/JuanmiCk7/GamerTool">Download app</a>
+    <a href="https://github.com/JuanmiCk7/GamerTool/releases/download/v1.0.0/gamertool_1.0.0.apk">Download app</a>
     ·
     <a href="https://github.com/JuanmiCk7/GamerTool/issues">Report Bug</a>
   </p>
