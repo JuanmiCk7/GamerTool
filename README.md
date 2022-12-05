@@ -4,64 +4,88 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/JuanmiCk7/GamerTool">
-    <img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="250" height="250">
   </a>
-
+  <br/>
+  <h2>App to search and save your favorites games!</h2>
   <p align="center">
-    With this app you can find new games and add to a wishlist.
     <br />
-    <br />
-    <br />
-    <a href="https://github.com/JuanmiCk7/GamerTool">View Demo</a>
+    <a href="https://github.com/JuanmiCk7/GamerTool">Download app</a>
     ·
     <a href="https://github.com/JuanmiCk7/GamerTool/issues">Report Bug</a>
   </p>
 </div>
 
 
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-    </li>
-        <li><a href="#installation">Installation</a></li>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#used-languages">Used languages, frameworks, used libraries...</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#new-features">New features</a></li>
     <li><a href="#contact">Contact</a></li>
+    
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Project 📖
 
-Android app made with Kotlin. This app follows the MVVM pattern and use Dagger Hilt to inject dependencies.
-This was made as a final project of my degree.
+Application made for Android where you can search for your favorite games and add them to your personal list.
+This application is made with Kotlin and follows the MVVM design pattern.
 
-<h3>Application screenshots</h3>
+## Used languages, frameworks and libraries... ⚙
+<ul>
+  <li>Kotlin</li>
+  <li>Retrofit2</li>
+  <li>Coroutines</li>
+  <li>Firestore</li>
+  <li>Firebase Auth</li>
+  <li>Dagger Hilt</li>
+  <li>Paging</li>
+  <li>Picasso</li>
+</ul>
 
-<img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
-<img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
-<img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
+<h3>Application screenshots 📷</h3>
+
+<div>
+    <h4>Login screen</h4>
+    <img src="https://i.imgur.com/vbcanlX.png" alt="Logo" width="250" height="500">
+    <h4>Register screen</h4>
+    <img src="https://i.imgur.com/A7vMz9E.png" alt="Logo" width="250" height="500">
+    <h4>Search screen</h4>
+    <img src="https://i.imgur.com/5WeYrcY.png" alt="Logo" width="250" height="500">
+    <h4>Game screen</h4>
+    <img src="https://i.imgur.com/S3jueiI.png" alt="Logo" width="250" height="500">
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Installation
+### Installation ⬇
 
-You can download the APK from the releases page.
+You can download the APK from the releases page or import the project in Android Studio.
+If you want to import the project in Android Studio you will need a file named "apikey.properties" that defines 2 properties:
 
-### New features
+<ul>
+  <li>CLIENT_ID: "YOUR_CLIENT_ID"</li>
+  <li>TOKEN: "Bearer YOUR_TOKEN"</li>
+</ul>
+
+You can get this 2 properties from this website: https://api-docs.igdb.com/#about
+
+Add this file in project root and build!
+
+### New features 💻
 
 See the [open issues](https://github.com/JuanmiCk7/GamerTool/issues) for a full list of proposed features (and known issues).
 
@@ -69,26 +93,24 @@ See the [open issues](https://github.com/JuanmiCk7/GamerTool/issues) for a full 
 
 
 <!-- CONTACT -->
-## Contact
+## Contact ✒
 
 Juan Miguel Cabot Madrid - juanmicabot@gmail.com
 
-Project Link: [https://github.com/JuanmiCk7/GamerTool](https://github.com/JuanmiCk7/GamerTool)
+LinkdIn: [https://linkedin.com/in/JuanmiCk7](https://linkedin.com/in/JuanmiCk7)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/JuanmiCk7/GamerTool.svg?style=for-the-badge
 [contributors-url]: https://github.com/JuanmiCk7/GamerTool/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/JuanmiCk7/GamerTool.svg?style=for-the-badge
 [forks-url]: https://github.com/JuanmiCk7/GamerTool/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/JuanmiCk7/GamerTool.svg?style=for-the-badge
 [stars-url]: https://github.com/JuanmiCk7/GamerTool/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/JuanmiCk7/GamerTool.svg?style=for-the-badge
 [issues-url]: https://github.com/JuanmiCk7/GamerTool/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/JuanmiCk7/GamerTool/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/JuanmiCk7
 [product-screenshot]: /blob/main/app/src/main/res/drawable/gamertool_cover.png
