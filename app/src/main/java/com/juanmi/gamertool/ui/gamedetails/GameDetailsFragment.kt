@@ -32,13 +32,9 @@ class GameDetailsFragment : Fragment() {
 
     private var _binding: GameDetailsFragmentBinding? = null
     private val binding get() = _binding!!
-
     lateinit var game: Game
-
     private val viewModel: GameDetailsViewModel by viewModels()
-
     private lateinit var screenshotsAdapter: ScreenshotsAdapter
-
     private val args: GameDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -118,6 +114,8 @@ class GameDetailsFragment : Fragment() {
             binding.buttonToWishOrComplete.setOnClickListener {
                 if(args.comeFromMyGames) {
                     viewModel.setState(game, !game.complete, requireContext())
+                    changeButtonText()
+                    game.complete = !game.complete
                 } else {
                     viewModel.saveGame(game, requireContext())
                 }
@@ -126,6 +124,14 @@ class GameDetailsFragment : Fragment() {
             binding.deleteButton.setOnClickListener {
                 dialogDeleteGame()
             }
+        }
+    }
+
+    private fun changeButtonText() {
+        if(game.complete) {
+            binding.buttonToWishOrComplete.text = getText(R.string.finished_button)
+        } else {
+            binding.buttonToWishOrComplete.text = getText(R.string.unfinished_button)
         }
     }
 

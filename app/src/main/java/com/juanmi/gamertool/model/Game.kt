@@ -27,7 +27,7 @@ data class Game(
     val follows : Int? = 0,
     @SerializedName("involved_companies") val involvedCompanies : List<GameInvolvedCompanies>? = listOf(),
     val screenshots: List<GameScreenshot>? = listOf(),
-    val complete: Boolean = false,
+    var complete: Boolean = false,
     val comesFromFirestore: Boolean = false
 ) : Parcelable
 
