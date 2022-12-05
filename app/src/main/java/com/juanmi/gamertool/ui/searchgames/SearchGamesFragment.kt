@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.ui.foundgames
+package com.juanmi.gamertool.ui.searchgames
 
 import android.content.Context
 import android.os.Bundle
@@ -23,7 +23,7 @@ import com.juanmi.gamertool.pagging.adapters.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FoundGamesFragment : Fragment() {
+class SearchGamesFragment : Fragment() {
 
     private var _binding: FoundGamesFragmentBinding? = null
     private val binding get() = _binding!!
@@ -31,7 +31,7 @@ class FoundGamesFragment : Fragment() {
 
     private val defaultGameName = "Mario"
 
-    private val viewModel: FoundGamesViewModel by viewModels()
+    private val viewModel: SearchGamesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,12 +64,12 @@ class FoundGamesFragment : Fragment() {
             )
         }
 
-        val searchIcon : ImageView = binding.searchView!!.findViewById(androidx.appcompat.R.id.search_button)
-        val cleanIcon : ImageView = binding.searchView!!.findViewById(androidx.appcompat.R.id.search_close_btn)
+        val searchIcon : ImageView = binding.searchView.findViewById(androidx.appcompat.R.id.search_button)
+        val cleanIcon : ImageView = binding.searchView.findViewById(androidx.appcompat.R.id.search_close_btn)
         searchIcon.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.search_view_icon))
         cleanIcon.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.search_view_clean_icon))
 
-        binding.searchView?.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query != null) {
                     viewModel.setGameName(query)
@@ -97,15 +97,6 @@ class FoundGamesFragment : Fragment() {
 
         viewModel.gameList.observe(viewLifecycleOwner) {
             gamesAdapter.submitData(viewLifecycleOwner.lifecycle, it)
-
-        }
-    }
-
-    private fun noGamesTextViewVisibility() {
-        if(1 == 2) {
-            binding.noGamesTv.visibility = View.VISIBLE
-        } else {
-            binding.noGamesTv.visibility = View.INVISIBLE
         }
     }
 

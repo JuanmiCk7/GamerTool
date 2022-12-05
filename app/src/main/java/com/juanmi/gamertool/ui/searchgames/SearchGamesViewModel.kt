@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.ui.foundgames
+package com.juanmi.gamertool.ui.searchgames
 
 import android.view.View
 import androidx.lifecycle.*
@@ -10,7 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class FoundGamesViewModel @Inject constructor(private val repository: PagingGameRepository) : ViewModel() {
+class SearchGamesViewModel @Inject constructor(private val repository: PagingGameRepository) : ViewModel() {
 
     private val _gameName = MutableLiveData<String>()
     private val gameName: LiveData<String> = _gameName
@@ -21,7 +21,7 @@ class FoundGamesViewModel @Inject constructor(private val repository: PagingGame
     }
 
     fun onGameClicked(gameClicked: Game, view: View) {
-        val action = FoundGamesFragmentDirections
+        val action = SearchGamesFragmentDirections
             .actionFoundGamesFragmentToGameDetailsFragment(gameClicked, false)
         view.findNavController().navigate(action)
     }

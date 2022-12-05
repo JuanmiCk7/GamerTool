@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/SearchFragment"
-        android:name="com.juanmi.gamertool.ui.foundgames.FoundGamesFragment"
+        android:name="com.juanmi.gamertool.ui.searchgames.SearchGamesFragment"
         android:label="SearchFragment"
         tools:layout="@layout/found_games_fragment">
         <action

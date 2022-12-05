@@ -35,8 +35,6 @@ class ApiClient(
 
     private fun configureServices() {
         val builder = OkHttpClient.Builder()
-        val loggin = HttpLoggingInterceptor()
-        loggin.level = HttpLoggingInterceptor.Level.BODY
 
         val headers = Interceptor { chain ->
             val request: Request = chain.request().newBuilder()
@@ -49,7 +47,6 @@ class ApiClient(
         val client = builder
             .readTimeout(50, TimeUnit.SECONDS)
             .connectTimeout(50, TimeUnit.SECONDS)
-            .addInterceptor(loggin)
             .addInterceptor(headers)
             .build()
 
