@@ -13,10 +13,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/JuanmiCk7/GamerTool">
-    <img src="blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
   </a>
-
-<h3 align="center">GamerTool</h3>
 
   <p align="center">
     With this app you can find new games and add to a wishlist.
@@ -48,10 +46,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 Android app made with Kotlin. This app follows the MVVM pattern and use Dagger Hilt to inject dependencies.
 This was made as a final project of my degree.
+
+<h3>Application screenshots</h3>
+
+<img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
+<img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
+<img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="80" height="80">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
