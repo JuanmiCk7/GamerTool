@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.utils.adapters
+package com.juanmi.gamertool.pagging.sources
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
@@ -14,7 +14,7 @@ class GameSearchPagingSource(private val repository: GameRepository, private val
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Game> {
         return try {
 
-            var pageNumber = params.key ?: STARTING_PAGE_INDEX
+            val pageNumber = params.key ?: STARTING_PAGE_INDEX
             val response = repository.getGamesByName(gameName, pageNumber)
 
             var resultData: ArrayList<Game>? = null

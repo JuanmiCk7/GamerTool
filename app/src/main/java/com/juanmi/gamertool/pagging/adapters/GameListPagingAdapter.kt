@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.utils.adapters
+package com.juanmi.gamertool.pagging.adapters
 
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil

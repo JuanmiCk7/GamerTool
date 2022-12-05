@@ -1,9 +1,7 @@
-package com.juanmi.gamertool.utils.adapters
+package com.juanmi.gamertool.pagging.sources
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
@@ -11,10 +9,10 @@ import com.juanmi.gamertool.model.Game
 import kotlinx.coroutines.tasks.await
 import retrofit2.HttpException
 
+private const val PAGE_SIZE = 50
+
 class MyGamesPagingSource(private val repository: FirestoreRepository, private val authRepository: AuthRepository)
     : PagingSource<QuerySnapshot, Game>() {
-
-    private val PAGE_SIZE = 50
 
     override suspend fun load(params: LoadParams<QuerySnapshot>): LoadResult<QuerySnapshot, Game> {
 

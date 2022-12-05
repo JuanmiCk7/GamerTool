@@ -4,7 +4,6 @@ package com.juanmi.gamertool.ui.gamedetails
 import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,7 @@ import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.model.getDevelopers
 import com.juanmi.gamertool.model.getGenres
 import com.juanmi.gamertool.model.getReleaseDate
-import com.juanmi.gamertool.utils.adapters.ScreenshotsAdapter
+import com.juanmi.gamertool.pagging.adapters.ScreenshotsAdapter
 import com.juanmi.gamertool.utils.formatCoverImageUrl
 import com.juanmi.gamertool.utils.formatScreenshotBackgroundImageUrl
 import com.squareup.picasso.Picasso

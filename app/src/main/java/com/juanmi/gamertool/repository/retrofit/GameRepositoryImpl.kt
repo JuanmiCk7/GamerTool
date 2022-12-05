@@ -1,11 +1,10 @@
 package com.juanmi.gamertool.repository.retrofit
 
 import com.juanmi.gamertool.application.api.ResultData
-import com.juanmi.gamertool.application.safeCall
+import com.juanmi.gamertool.utils.safeCall
 import com.juanmi.gamertool.model.Game
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**

@@ -1,12 +1,27 @@
-package com.juanmi.gamertool.utils.adapters
+package com.juanmi.gamertool.pagging.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
+import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.LoadStateItemBinding
+
+class LoadStateAdapter(private val retry: () -> Unit) :
+    LoadStateAdapter<LoadStateViewHolder>() {
+    override fun onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState) {
+        holder.bind(loadState)
+    }
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        loadState: LoadState
+    ): LoadStateViewHolder {
+        return LoadStateViewHolder.create(parent, retry)
+    }
+}
 
 class LoadStateViewHolder(
     private val binding: LoadStateItemBinding,

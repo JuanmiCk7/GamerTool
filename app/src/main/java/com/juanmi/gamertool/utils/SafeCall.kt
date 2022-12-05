@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.application
+package com.juanmi.gamertool.utils
 
 import com.juanmi.gamertool.application.api.ResultData
 import kotlinx.coroutines.CoroutineDispatcher

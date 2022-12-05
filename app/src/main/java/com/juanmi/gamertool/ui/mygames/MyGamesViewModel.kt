@@ -13,7 +13,7 @@ import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
 import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
-import com.juanmi.gamertool.utils.adapters.MyGamesPagingSource
+import com.juanmi.gamertool.pagging.sources.MyGamesPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -23,9 +23,6 @@ class MyGamesViewModel @Inject constructor(
     repository: FirestoreRepository,
     private val authRepository: AuthRepository
 ): ViewModel() {
-
-    private val _games = MutableLiveData<ArrayList<Game>>()
-    val games: LiveData<ArrayList<Game>> = _games
 
     @ExperimentalPagingApi
     val gameList: Flow<PagingData<Game>> =

@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.MyGamesFragmentBinding
 import com.juanmi.gamertool.model.Game
-import com.juanmi.gamertool.utils.adapters.LoadStateAdapter
-import com.juanmi.gamertool.utils.adapters.GameListPagingAdapter
+import com.juanmi.gamertool.pagging.adapters.LoadStateAdapter
+import com.juanmi.gamertool.pagging.adapters.GameListPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 

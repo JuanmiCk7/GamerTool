@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.utils.adapters
+package com.juanmi.gamertool.pagging.adapters
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
