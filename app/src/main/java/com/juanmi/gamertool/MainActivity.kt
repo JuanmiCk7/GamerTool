@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.juanmi.gamertool.databinding.MainActivityBinding
-import com.juanmi.gamertool.ui.login.LoginFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
