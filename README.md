@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/JuanmiCk7/GamerTool">
-    <img src="https://github.com/JuanmiCk7/GamerTool/blob/main/app/src/main/res/drawable/gamertool_cover.png" alt="Logo" width="250" height="250">
+    <img src="https://imgur.com/U8hJDN6.png" alt="Logo" width="350" height="250">
   </a>
   <br/>
   <h2>App to search and save your favorites games!</h2>
@@ -60,9 +60,9 @@ This application is made with Kotlin and follows the MVVM design pattern.
 
 <div>
     <h4>Login screen</h4>
-    <img src="https://i.imgur.com/vbcanlX.png" alt="Logo" width="250" height="500">
+    <img src="https://imgur.com/LHQMtiR.png" alt="Logo" width="250" height="500">
     <h4>Register screen</h4>
-    <img src="https://i.imgur.com/A7vMz9E.png" alt="Logo" width="250" height="500">
+    <img src="https://imgur.com/nt8bjPr.png" alt="Logo" width="250" height="500">
     <h4>Search screen</h4>
     <img src="https://i.imgur.com/5WeYrcY.png" alt="Logo" width="250" height="500">
     <h4>Game screen</h4>
