@@ -97,7 +97,7 @@ See the [open issues](https://github.com/JuanmiCk7/GamerTool/issues) for a full 
 
 Juan Miguel Cabot Madrid - juanmicabot@gmail.com
 
-LinkdIn: [https://linkedin.com/in/JuanmiCk7](https://linkedin.com/in/JuanmiCk7)
+LinkedIn: [https://linkedin.com/in/JuanmiCk7](https://linkedin.com/in/JuanmiCk7)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
