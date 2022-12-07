@@ -11,6 +11,10 @@ import retrofit2.HttpException
 
 private const val PAGE_SIZE = 50
 
+
+/***
+ * Clase utilizada para cargar una página en base a una búsqueda en la base de datos de Firestore.
+ */
 class MyGamesPagingSource(private val repository: FirestoreRepository, private val authRepository: AuthRepository)
     : PagingSource<QuerySnapshot, Game>() {
 

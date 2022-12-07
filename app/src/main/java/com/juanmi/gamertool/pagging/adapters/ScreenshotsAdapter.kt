@@ -10,6 +10,9 @@ import com.juanmi.gamertool.model.GameScreenshot
 import com.juanmi.gamertool.utils.formatScreenshotImageUrl
 import com.squareup.picasso.Picasso
 
+/***
+ * Adaptador para las capturas de los juegos.
+ */
 class ScreenshotsAdapter(
     private val screenshots: List<GameScreenshot>,
     private val drawableFallbackImage: Drawable
@@ -40,6 +43,9 @@ class ScreenshotsAdapter(
         return position
     }
 
+    /**
+     * ViewHolder de las capturas de juegos.
+     */
     inner class ViewHolder(
         private val itemBinding: GameScreenshotBinding
     ) : RecyclerView.ViewHolder(itemBinding.root) {

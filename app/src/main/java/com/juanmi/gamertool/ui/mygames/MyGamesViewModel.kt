@@ -1,8 +1,6 @@
 package com.juanmi.gamertool.ui.mygames
 
 import android.view.View
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import androidx.paging.ExperimentalPagingApi
@@ -12,7 +10,7 @@ import androidx.paging.PagingData
 import com.juanmi.gamertool.repository.auth.AuthRepository
 import com.juanmi.gamertool.repository.firestore.FirestoreRepository
 import com.juanmi.gamertool.model.Game
-import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
+import com.juanmi.gamertool.repository.retrofit.impl.GameRepositoryImpl
 import com.juanmi.gamertool.pagging.sources.MyGamesPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow

@@ -125,7 +125,6 @@ class GameDetailsFragment : Fragment() {
             }
         }
     }
-
     private fun changeButtonText() {
         if(game.complete) {
             binding.buttonToWishOrComplete.text = getText(R.string.finished_button)

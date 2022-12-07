@@ -5,6 +5,9 @@ const val T_SCREENSHOT_MED_STRING = "t_screenshot_med"
 const val T_SCREENSHOT_BIG_STRING = "t_screenshot_big"
 const val T_COVER_BIG_STRING = "t_cover_big"
 
+/***
+ * Métodos utilizados para formatear la URL de las capturas de pantalla.
+ */
 fun String?.formatScreenshotImageUrl(): String {
     return if (this.isNullOrEmpty()) {
         ""

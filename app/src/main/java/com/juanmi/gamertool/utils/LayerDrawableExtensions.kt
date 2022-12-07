@@ -4,6 +4,9 @@ import android.graphics.drawable.LayerDrawable
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 
+/***
+ * Clase utilizada para cambiar el color de las estrellas en el RatingBar
+ */
 fun LayerDrawable.setStarsProgressColor(
     primaryStarColor: Int,
     secondaryStarColor: Int

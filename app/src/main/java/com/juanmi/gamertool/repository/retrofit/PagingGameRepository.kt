@@ -1,30 +1,13 @@
 package com.juanmi.gamertool.repository.retrofit
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.liveData
-import com.juanmi.gamertool.pagging.sources.GameSearchPagingSource
-import com.juanmi.gamertool.pagging.sources.GamesPagingSource
-import javax.inject.Inject
+import androidx.lifecycle.LiveData
+import androidx.paging.PagingData
+import com.juanmi.gamertool.model.Game
 
-class PagingGameRepository @Inject constructor(private val repository: GameRepository) {
-
-    fun getSearchResults(query: String) =
-        Pager(
-            config = PagingConfig(
-                pageSize = GameRepositoryImpl.GAME_PAGE_SIZE,
-                prefetchDistance = 2
-            ),
-            pagingSourceFactory = { GameSearchPagingSource(repository, query) }
-        ).liveData
-
-    fun getAllGames() =
-        Pager(
-            config = PagingConfig(
-                pageSize = GameRepositoryImpl.GAME_PAGE_SIZE,
-                prefetchDistance = 2
-            ),
-            pagingSourceFactory = { GamesPagingSource(repository) }
-        ).liveData
-
+/**
+ * Interfaz que define los métodos con los que creamos el objeto Pager en base a una petición.
+ */
+interface PagingGameRepository {
+    fun getSearchResults(query: String) : LiveData<PagingData<Game>>
+    fun getAllGames() : LiveData<PagingData<Game>>
 }

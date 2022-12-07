@@ -5,9 +5,12 @@ import androidx.paging.PagingState
 import com.juanmi.gamertool.application.api.ResultData
 import com.juanmi.gamertool.model.Game
 import com.juanmi.gamertool.repository.retrofit.GameRepository
-import com.juanmi.gamertool.repository.retrofit.GameRepositoryImpl
+import com.juanmi.gamertool.repository.retrofit.impl.GameRepositoryImpl
 import retrofit2.HttpException
 
+/***
+ * Clase utilizada para cargar una página en base a una búsqueda por valoración de mayor a menor.
+ */
 class GamesPagingSource(private val repository: GameRepository) :
     PagingSource<Int, Game>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Game> {

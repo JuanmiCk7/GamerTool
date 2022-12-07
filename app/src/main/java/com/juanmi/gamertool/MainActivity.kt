@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var loginFragment : LoginFragment
-
         val bottomNavigationView = binding.bottomNavigationView
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
@@ -44,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         bottomNavigationView.setupWithNavController(navController)
-
     }
 
     private fun hideBottomNav() {

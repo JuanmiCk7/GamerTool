@@ -20,6 +20,9 @@ import com.juanmi.gamertool.utils.formatCoverImageUrl
 import com.juanmi.gamertool.utils.setStarsProgressColor
 import com.squareup.picasso.Picasso
 
+/**
+ * Adaptador para la lista de juegos.
+ */
 class GameListPagingAdapter(
     private val itemClickFunction: (Game) -> Unit,
     private val onFinishRefresh: () -> Unit,
@@ -47,6 +50,9 @@ class GameListPagingAdapter(
         onFinishRefresh()
     }
 
+    /***
+     * ViewHolder de la lista de juegos
+     */
     inner class GameViewHolder(
         private val itemBinding: RecyclerViewGameBinding,
         private val clickFunction: (Game) -> Unit,

@@ -9,6 +9,9 @@ import retrofit2.HttpException
 
 private const val STARTING_PAGE_INDEX = 1
 
+/***
+ * Clase utilizada para cargar una página en base a una búsqueda por nombre de un juego.
+ */
 class GameSearchPagingSource(private val repository: GameRepository, private val gameName: String) :
     PagingSource<Int, Game>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Game> {

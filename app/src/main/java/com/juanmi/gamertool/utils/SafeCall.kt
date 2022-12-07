@@ -7,7 +7,7 @@ import retrofit2.HttpException
 import retrofit2.Response
 
 /***
- * Clase utilizada para controlar los posibles errores producidos al hacer la petición a la API.
+ * Método utilizado para controlar los posibles errores producidos al hacer la petición a la API.
  */
 internal suspend fun <T> safeCall(dispatcher: CoroutineDispatcher, call: suspend () -> Response<T>): ResultData<T?> {
     return withContext(dispatcher) {

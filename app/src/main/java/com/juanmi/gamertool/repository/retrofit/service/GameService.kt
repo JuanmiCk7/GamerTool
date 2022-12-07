@@ -1,4 +1,4 @@
-package com.juanmi.gamertool.repository.retrofit
+package com.juanmi.gamertool.repository.retrofit.service
 
 import com.juanmi.gamertool.model.Game
 import retrofit2.Response

@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.juanmi.gamertool.R
 import com.juanmi.gamertool.databinding.LoadStateItemBinding
 
+/***
+ * Adaptador para el manejo de errores al cargar la lista de juegos.
+ */
 class LoadStateAdapter(private val retry: () -> Unit) :
     LoadStateAdapter<LoadStateViewHolder>() {
     override fun onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState) {
@@ -23,6 +26,9 @@ class LoadStateAdapter(private val retry: () -> Unit) :
     }
 }
 
+/***
+ * ViewHolder del manejador de errores.
+ */
 class LoadStateViewHolder(
     private val binding: LoadStateItemBinding,
     retry: () -> Unit
