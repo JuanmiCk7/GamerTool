@@ -31,6 +31,9 @@ data class Game(
     val comesFromFirestore: Boolean = false
 ) : Parcelable
 
+/***
+ * Método utilizado para obtener los desarrolladores de un juego.
+ */
 fun Game.getDevelopers() : String {
     var developersString = ""
     if(!this.involvedCompanies.isNullOrEmpty())  {
